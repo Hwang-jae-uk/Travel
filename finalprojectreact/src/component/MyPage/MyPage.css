@@ -528,12 +528,8 @@
 .save-btn,
 .cancel-btn {
     display: none !important;
-<<<<<<< HEAD
-} 
-=======
 } 
 .status.isPast {
     background: red;
     color: black;
 }
->>>>>>> 902477c (initial commit)

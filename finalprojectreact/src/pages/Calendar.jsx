@@ -3,10 +3,7 @@ import './Calendar.css';
 import dayjs from 'dayjs';
 import styled from 'styled-components';
 import axios from 'axios';
-<<<<<<< HEAD
-=======
 import { TbTrain } from "react-icons/tb";
->>>>>>> 902477c (initial commit)
 
 const DateCell = styled.div.attrs(props => ({
   // DOM에 전달될 속성들만 여기서 정의
@@ -61,15 +58,12 @@ const DateText = styled.span.attrs(props => ({
 
 const TrainIcon = styled.span`
   margin-left: 5px;
-<<<<<<< HEAD
-=======
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
   svg {
     margin-bottom: 1px;
   }
->>>>>>> 902477c (initial commit)
 `;
 
 const Calendar = ({ isOpen, onClose, onSelect, initialDate, selectionType, departDate, returnDate }) => {
@@ -439,13 +433,9 @@ const Calendar = ({ isOpen, onClose, onSelect, initialDate, selectionType, depar
                         {day.date}
                       </DateText>
                       {day.hasTrains && !day.isPast && !day.disabled && (
-<<<<<<< HEAD
-                        <TrainIcon>🚄</TrainIcon>
-=======
                         <div className="calendar-train-icon">
                           <TbTrain size={18} color="#666" />
                         </div>
->>>>>>> 902477c (initial commit)
                       )}
                     </DateCell>
                   );

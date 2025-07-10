@@ -11,8 +11,6 @@
   z-index: 1000;
 }
 
-<<<<<<< HEAD
-=======
 .passenger-modal-content {
     background-color: white;
     padding: 2rem;
@@ -24,7 +22,6 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
->>>>>>> 902477c (initial commit)
 .passenger-modal {
   background-color: white;
   width: 100%;

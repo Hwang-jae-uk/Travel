@@ -6,13 +6,10 @@ import HotelMapModal from './HotelMapModal';
 import './Hotel.css';
 import HotelHeader from './HotelHeader';
 import Button from '../../ui/Button';
-<<<<<<< HEAD
-=======
 import { BsCart4, BsCalendar3 } from 'react-icons/bs';
 import { IoLocationSharp, IoArrowBack, IoCamera } from 'react-icons/io5';
 import { HiUsers } from 'react-icons/hi';
 import { MdClose } from 'react-icons/md';
->>>>>>> 902477c (initial commit)
 
 const HotelDetail = () => {
     const { id } = useParams();
@@ -337,34 +334,12 @@ const HotelDetail = () => {
         
         // 여러 대체 URL 시도
         const imageUrl = hotel.images[imageIndex]?.imageUrl;
-<<<<<<< HEAD
-        const alternativeUrls = [
-            `http://10.100.105.22:8080${imageUrl}`,
-            `http://10.100.105.22:8080/api/images${imageUrl}`,
-            `http://10.100.105.22:8080/upload${imageUrl.replace('/upload', '')}`,
-        ];
         
-        let currentAttempt = parseInt(e.target.dataset.attempt || '0');
-        if (currentAttempt < alternativeUrls.length) {
-            console.log(`Trying alternative URL ${currentAttempt + 1}:`, alternativeUrls[currentAttempt]);
-            e.target.dataset.attempt = (currentAttempt + 1).toString();
-            e.target.src = alternativeUrls[currentAttempt];
-        } else {
-            console.error('All alternative URLs failed');
-            setImageLoadError(true);
-        }
-=======
-        
->>>>>>> 902477c (initial commit)
     };
 
     // 이미지 모달 열기
     const handleRoomImageClick = (imageUrl) => {
-<<<<<<< HEAD
-        setSelectedModalImage(`http://10.100.105.22:8080${imageUrl}`);
-=======
         setSelectedModalImage(`${imageUrl}`);
->>>>>>> 902477c (initial commit)
         setShowImageModal(true);
     };
 
@@ -385,33 +360,20 @@ const HotelDetail = () => {
     return (
         <div className="hotel-detail-container">
             <HotelHeader
-<<<<<<< HEAD
-                rightChild={<Button text={"📦"} onClick={() => navigate('/HotelReservationPage')}/>}
-                leftChild={<Button text={"◀"} onClick={() => navigate('/HotelPage')}/>}
-=======
                 rightChild={<Button text={<BsCart4 size={30} />} onClick={() => navigate('/HotelReservationPage')}/>}
                 leftChild={<Button text={<IoArrowBack size={30} />} onClick={() => navigate('/HotelPage')}/>}
->>>>>>> 902477c (initial commit)
             />
             {/* 호텔 이미지 섹션 */}
             {hotel.images && hotel.images.length > 0 && (
             <div className="hotel-images-section">
                 <div className="hotel-main-image-container" onClick={() => handleImageClick(0)}>
                     <img 
-<<<<<<< HEAD
-                            src={`http://10.100.105.22:8080/api/images${hotel.images[0]?.imageUrl?.startsWith('/') ? '' : '/'}${hotel.images[0]?.imageUrl || ''}`}
-=======
                         src={`${hotel.images[0].imageUrl}`}
->>>>>>> 902477c (initial commit)
                         alt={hotel.name} 
                         className="hotel-main-image"
                     />
                     <div className="image-overlay">
-<<<<<<< HEAD
-                        <span className="view-images-text">📷 이미지 보기</span>
-=======
                         <span className="view-images-text"><IoCamera size={20} /> 이미지 보기</span>
->>>>>>> 902477c (initial commit)
                     </div>
                 </div>
                 <div className="thumbnail-container">
@@ -422,11 +384,7 @@ const HotelDetail = () => {
                             onClick={() => handleImageClick(index + 1)}
                         >
                             <img 
-<<<<<<< HEAD
-                                src={`http://10.100.105.22:8080/api/images${image.imageUrl.startsWith('/') ? '' : '/'}${image.imageUrl}`}
-=======
                                 src={`${image.imageUrl}`}
->>>>>>> 902477c (initial commit)
                                 alt={`${hotel.name} ${index + 2}`}
                                 className="thumbnail"
                             />
@@ -457,11 +415,7 @@ const HotelDetail = () => {
                             onClick={() => setShowMapModal(true)}
                             title="지도에서 보기"
                         >
-<<<<<<< HEAD
-                            📍 지도보기
-=======
                             <IoLocationSharp size={18} /> 지도보기
->>>>>>> 902477c (initial commit)
                         </button>
                     </p>
                     <p><strong>전화번호:</strong> {hotel.phone}</p>
@@ -545,11 +499,7 @@ const HotelDetail = () => {
                             </div>
                         </div>
                         <div className="guest-input-group">
-<<<<<<< HEAD
-                            <label htmlFor="guests">👥 인원</label>
-=======
                             <label htmlFor="guests"><HiUsers size={20} /> 인원</label>
->>>>>>> 902477c (initial commit)
                             <select
                                 id="guests"
                                 value={guestCount}
@@ -565,11 +515,7 @@ const HotelDetail = () => {
                     {checkInDate && checkOutDate && (
                         <div className="date-summary">
                             <p>📅 {checkInDate} ~ {checkOutDate} ({Math.ceil((new Date(checkOutDate) - new Date(checkInDate)) / (1000 * 60 * 60 * 24))}박)</p>
-<<<<<<< HEAD
-                            <p>👥 {guestCount}명</p>
-=======
                             <p><HiUsers size={18} /> {guestCount}명</p>
->>>>>>> 902477c (initial commit)
                         </div>
                     )}
                 </div>
@@ -585,11 +531,7 @@ const HotelDetail = () => {
                         <div key={index} className={`room-card ${isAvailable ? '' : 'unavailable'}`}>
                             <div className="room-image" onClick={() => setSelectedRoom(room)}>
                                 {room.roomImages && room.roomImages.length > 0 && room.roomImages[0]?.imageUrl ? (
-<<<<<<< HEAD
-                                    <img src={`http://10.100.105.22:8080/api/images${room.roomImages[0].imageUrl.startsWith('/') ? '' : '/'}${room.roomImages[0].imageUrl}`} alt={room.name} />
-=======
                                     <img src={`${room.roomImages[0].imageUrl}`} alt={room.name} />
->>>>>>> 902477c (initial commit)
                                 ) : (
                                     <div className="no-image">이미지 없음</div>
                                 )}
@@ -622,10 +564,6 @@ const HotelDetail = () => {
                                             {/* 예약하기 버튼 또는 예약 불가능 메시지 */}
                                             <div className="room-reservation">
                                                 {isAvailable ? (
-<<<<<<< HEAD
-                                                    // 예약 가능한 경우
-=======
->>>>>>> 902477c (initial commit)
                                                     <>
                                                         {checkInDate && checkOutDate && (
                                                             <div className="total-price">
@@ -636,17 +574,6 @@ const HotelDetail = () => {
                                                             className="reserve-btn"
                                                             onClick={() => addToBasket(room.id)}
                                                         >
-<<<<<<< HEAD
-                                                            {'🛒 바구니 담기'}
-                                                        </button>
-                                                    </>
-                                                ) : (
-                                                    // 예약 불가능한 경우
-                                                    <div className="unavailable-info">
-                                                        <div className="unavailable-message">
-                                                            <span>
-                                                                ❌ 예약 불가능
-=======
                                                             <BsCart4 size={20} /> 바구니 담기
                                                         </button>
                                                     </>
@@ -655,7 +582,6 @@ const HotelDetail = () => {
                                                         <div className="unavailable-message">
                                                             <span>
                                                                 <MdClose size={20} /> 예약 불가능
->>>>>>> 902477c (initial commit)
                                                             </span>
                                                         </div>
                                                         {unavailableDates.length > 0 && (
@@ -683,21 +609,13 @@ const HotelDetail = () => {
                 <div className="modal-overlay" onClick={handleModalClose}>
                     <div className="modal-content image-gallery-modal" onClick={e => e.stopPropagation()}>
                         <button className="close-btn" onClick={handleModalClose}>×</button>
-<<<<<<< HEAD
-                        <h2>{hotel.name} - 호텔 이미지</h2>
-=======
->>>>>>> 902477c (initial commit)
                         <div className="image-gallery-container">
                             <div className="hotel-main-image-display">
                                 {hotel.images && hotel.images[selectedImageIndex] ? (
                                     <>
                                         <img 
                                             key={`main-${selectedImageIndex}`}
-<<<<<<< HEAD
-                                            src={`http://10.100.105.22:8080/api/images${encodeURI(hotel.images[selectedImageIndex]?.imageUrl)}`}
-=======
                                             src={`${(hotel.images[selectedImageIndex].imageUrl)}`}
->>>>>>> 902477c (initial commit)
                                             alt={`${hotel.name} ${selectedImageIndex + 1}`}
                                             onLoad={() => {
                                                 console.log('Main image loaded successfully for index:', selectedImageIndex);
@@ -733,11 +651,7 @@ const HotelDetail = () => {
                                         data-index={index}
                                     >
                                         <img 
-<<<<<<< HEAD
-                                            src={`http://10.100.105.22:8080/api/images${encodeURI(image.imageUrl)}`}
-=======
                                             src={`${(image.imageUrl)}`}
->>>>>>> 902477c (initial commit)
                                             alt={`${hotel.name} ${index + 1}`}
                                             className="gallery-thumbnail"
                                             data-index={index}
@@ -755,26 +669,15 @@ const HotelDetail = () => {
                 <div className="modal-overlay" onClick={() => setSelectedRoom(null)}>
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         <button className="close-btn" onClick={() => setSelectedRoom(null)}>×</button>
-<<<<<<< HEAD
-                        <h2>{selectedRoom.name}</h2>
-=======
                 
->>>>>>> 902477c (initial commit)
                         <div className="modal-images-grid">
                             {selectedRoom.roomImages && selectedRoom.roomImages.filter(image => image && image.imageUrl).map((image, index) => (
                                 <img 
                                     key={index}
-<<<<<<< HEAD
-                                    src={`http://10.100.105.22:8080/api/images${image.imageUrl.startsWith('/') ? '' : '/'}${image.imageUrl}`}
-                                    alt={`${selectedRoom.name} ${index + 1}`}
-                                    className="modal-image"
-                                    onClick={() => handleRoomImageClick(`/api/images${image.imageUrl}`)}
-=======
                                     src={`${image.imageUrl}`}
                                     alt={`${selectedRoom.name} ${index + 1}`}
                                     className="modal-image"
                                     onClick={() => handleRoomImageClick(`${image.imageUrl}`)}
->>>>>>> 902477c (initial commit)
                                 />
                             ))}
                         </div>

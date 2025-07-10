@@ -67,10 +67,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
         if (restaurant.images && restaurant.images.length > 0) {
           setExistingImages(restaurant.images);
           console.log(restaurant.images)
-<<<<<<< HEAD
-=======
           console.log(restaurant.images[0])
->>>>>>> 902477c (initial commit)
         }
 
         setLoading(false);
@@ -112,10 +109,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
     setImages(prev => [...prev, ...files]);
-<<<<<<< HEAD
-=======
     console.log(images)
->>>>>>> 902477c (initial commit)
   };
 
   const handleSubmit = async () => {
@@ -169,10 +163,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
           'Content-Type': 'multipart/form-data'
         }
       });
-<<<<<<< HEAD
-=======
       console.log(response.data)
->>>>>>> 902477c (initial commit)
       
       alert('레스토랑이 성공적으로 수정되었습니다.');
       navigate('/RestaurantPageAdmin');
@@ -408,11 +399,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop(idx, 'existing')}
             >
-<<<<<<< HEAD
-              <img src={`http://10.100.105.22:8080/api/images${image}`} alt={`레스토랑 이미지 ${idx + 1}`} />
-=======
               <img src={`${image.imagePath}`} alt={`레스토랑 이미지 ${idx + 1}`} />
->>>>>>> 902477c (initial commit)
               <button
                 className="remove-image"
                 onClick={() => handleRemoveExistingImage(idx)}

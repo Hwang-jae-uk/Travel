@@ -260,122 +260,6 @@ const RestaurantMapModal = ({ isOpen, onClose, address, restaurantName }) => {
                 setIsLoading(true);
                 setError(null);
 
-<<<<<<< HEAD
-                // 🟡 1단계: 네이버 지도 API 로드
-                console.log('🟡 1단계: 네이버 지도 API 로딩...');
-                await loadNaverMapsScript();
-                if (!isMounted) return;
-
-                // 🟡 2단계: 주소를 좌표로 변환
-                console.log('🟡 2단계: 주소 지오코딩...', address);
-                const coords = await geocodeAddress(address);
-                if (!isMounted) return;
-
-                console.log('🟡 3단계: 지도 초기화...', coords);
-
-                // 🟡 3단계: 지도 생성
-                const mapOptions = {
-                    center: new window.naver.maps.LatLng(coords.lat, coords.lng),
-                    zoom: 17,
-                    mapTypeControl: false,
-                    scaleControl: false,
-                    logoControl: false,
-                    mapDataControl: false,
-                    zoomControl: true,
-                    zoomControlOptions: {
-                        position: window.naver.maps.Position.TOP_RIGHT,
-                        style: window.naver.maps.ZoomControlStyle.SMALL
-                    }
-                };
-
-                const naverMap = new window.naver.maps.Map(mapRef.current, mapOptions);
-
-                // 🟡 4단계: 마커 생성 (레스토랑 테마 - 간단한 핀)
-                const marker = new window.naver.maps.Marker({
-                    position: new window.naver.maps.LatLng(coords.lat, coords.lng),
-                    map: naverMap,
-                    title: restaurantName || '레스토랑',
-                    icon: {
-                        content: `<div style="
-                            width: 24px;
-                            height: 24px;
-                            background: #DC143C;
-                            border: 3px solid white;
-                            border-radius: 50%;
-                            box-shadow: 0 2px 8px rgba(220, 20, 60, 0.4);
-                            position: relative;
-                            cursor: pointer;
-                        ">
-                            <div style="
-                                position: absolute;
-                                bottom: -8px;
-                                left: 50%;
-                                transform: translateX(-50%);
-                                width: 0;
-                                height: 0;
-                                border-left: 8px solid transparent;
-                                border-right: 8px solid transparent;
-                                border-top: 8px solid #DC143C;
-                            "></div>
-                        </div>`,
-                        size: new window.naver.maps.Size(24, 32),
-                        anchor: new window.naver.maps.Point(12, 32)
-                    }
-                });
-
-                // 🟡 5단계: 정보창 생성 (레스토랑 테마 - 마커 위에 항상 표시)
-                const infoWindow = new window.naver.maps.InfoWindow({
-                    content: `
-                        <div style="
-                            padding: 8px 12px;
-                            background: white;
-                            border-radius: 6px;
-                            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-                            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-                            border: 2px solid #DC143C;
-                            line-height: 1.3;
-                            min-width: 120px;
-                            text-align: center;
-                        ">
-                            <div style="
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                gap: 4px;
-                            ">
-                                <span style="font-size: 14px;">🍽️</span>
-                                <span style="
-                                    color: #DC143C;
-                                    font-size: 13px;
-                                    font-weight: bold;
-                                ">${restaurantName || '레스토랑'}</span>
-                            </div>
-                        </div>
-                    `,
-                    borderWidth: 0,
-                    backgroundColor: 'transparent',
-                    pixelOffset: new window.naver.maps.Point(0, -45),
-                    disableAnchor: true
-                });
-
-                // 마커 클릭 이벤트 (정보창 토글 제거 - 항상 표시)
-                window.naver.maps.Event.addListener(marker, 'click', () => {
-                    // 클릭 시 특별한 동작 없음 (항상 표시되므로)
-                });
-
-                // 정보창을 항상 마커 위에 표시
-                infoWindow.open(naverMap, marker);
-
-                if (!isMounted) return;
-                setMap(naverMap);
-                setIsLoading(false);
-                console.log('✅ 레스토랑 지도 초기화 완료!');
-            } catch (error) {
-                console.error('❌ 레스토랑 지도 초기화 오류:', error);
-                if (!isMounted) return;
-                setError(error.message || '지도를 불러오는데 실패했습니다.');
-                setIsLoading(false);
-=======
                 // 네이버 지도 스크립트 로딩과 지오코딩을 병렬 처리
                 const [_, coordinates] = await Promise.all([
                     loadNaverMapsScript(),
@@ -490,48 +374,25 @@ const RestaurantMapModal = ({ isOpen, onClose, address, restaurantName }) => {
                     setError(error.message);
                     setIsLoading(false);
                 }
->>>>>>> 902477c (initial commit)
             }
         };
 
         initMap();
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 902477c (initial commit)
         return () => {
             isMounted = false;
             if (map) {
                 map.destroy();
-<<<<<<< HEAD
-=======
                 setMap(null);
->>>>>>> 902477c (initial commit)
             }
         };
     }, [isOpen, address, restaurantName]);
 
-<<<<<<< HEAD
-    // 모달 외부 클릭 시 닫기
-    const handleOverlayClick = (e) => {
-        if (e.target === e.currentTarget) {
-            onClose();
-        }
-    };
-
-    if (!isOpen) return null;
-
-    return (
-        <div className="restaurant-map-modal-overlay" onClick={handleOverlayClick}>
-            <div className="restaurant-map-modal-content">
-=======
     if (!isOpen) return null;
 
     return (
         <div className="restaurant-map-modal-overlay" onClick={onClose}>
             <div className="restaurant-map-modal-content" onClick={e => e.stopPropagation()}>
->>>>>>> 902477c (initial commit)
                 <div className="restaurant-map-modal-header">
                     <h3>{restaurantName} 위치</h3>
                     <button className="restaurant-map-close-btn" onClick={onClose}>×</button>
@@ -557,17 +418,10 @@ const RestaurantMapModal = ({ isOpen, onClose, address, restaurantName }) => {
                         )}
                         <div 
                             ref={mapRef} 
-<<<<<<< HEAD
-                            className="restaurant-map"
-                            style={{ 
-                                width: '100%', 
-                                height: '100%',
-=======
                             className="restaurant-map" 
                             style={{ 
                                 width: '100%', 
                                 height: '400px',
->>>>>>> 902477c (initial commit)
                                 display: isLoading || error ? 'none' : 'block'
                             }}
                         />

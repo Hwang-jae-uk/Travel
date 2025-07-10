@@ -44,11 +44,7 @@ const PassengerModal = ({ isOpen, onClose, onSelect, initialAdults = 1, initialC
           <h2>인원 선택</h2>
           <button className="close-button" onClick={onClose}>×</button>
         </div>
-<<<<<<< HEAD
-        <div className="modal-content">
-=======
         <div className="passenger-modal-content">
->>>>>>> 902477c (initial commit)
           <div className="passenger-row">
             <div className="passenger-info">
               <div className="passenger-type">성인</div>

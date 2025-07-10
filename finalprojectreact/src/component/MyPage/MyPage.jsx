@@ -8,10 +8,7 @@ import { BookingContext } from '../../contexts/BookingContext';
 import { BsCart4 } from "react-icons/bs";
 import { IoArrowBack } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
-<<<<<<< HEAD
-=======
 import { TbTrain } from "react-icons/tb";
->>>>>>> 902477c (initial commit)
 
 const MyPage = () => {
     const navigate = useNavigate();
@@ -49,10 +46,7 @@ const MyPage = () => {
             try {
                 const response = await axios.get('/api/reservations/my');
                 setReservations(response.data);
-<<<<<<< HEAD
-=======
                 console.log("호텔 예약 정보:", response.data);
->>>>>>> 902477c (initial commit)
             } catch (error) {
                 console.error('호텔 예약 정보 가져오기 실패:', error);
                 setReservations([]);
@@ -64,10 +58,7 @@ const MyPage = () => {
             try {
                 const response = await axios.get('/api/train-reservations/my');
                 setTrainReservations(response.data);
-<<<<<<< HEAD
-=======
                 console.log("기차",response.data)
->>>>>>> 902477c (initial commit)
             } catch (error) {
                 console.error('기차 예약 정보 가져오기 실패:', error);
                 setTrainReservations([]);
@@ -110,11 +101,7 @@ const MyPage = () => {
                 // 결제취소 항목 DB 삭제 
                 await axios.delete(`/api/train/${trainReservations[0].paymentid}`);
                 console.log("결제취소 항목 DB 삭제 완료하였습니다."); 
-<<<<<<< HEAD
-                setTrainReservations(trainReservations.filter(res => res.id !== reservationId));
-=======
                 setTrainReservations(trainReservations.filter(res => res.paymentid !== trainReservations[0].paymentid));
->>>>>>> 902477c (initial commit)
                 // 선택된 항목 장바구니에서 제거
                 setBasketItems(basketItems.filter(item =>
                     item.paymentInfo?.paymentId !== trainReservations[0].paymentid
@@ -133,6 +120,8 @@ const MyPage = () => {
             setNickname(newNickname);
             sessionStorage.setItem('displayName', newNickname);
             setIsEditing(false);
+            // 닉네임 업데이트 이벤트 발생
+            window.dispatchEvent(new Event('nickname-updated'));
             alert(response.data.message || '닉네임이 성공적으로 변경되었습니다.');
         } catch (error) {
             console.error('닉네임 변경 실패:', error);
@@ -267,13 +256,9 @@ const MyPage = () => {
                                         <div className="reservation-header">
                                             <h3>{reservation.hotelName}</h3>
                                             <span className={`status ${reservation.status}`}>
-<<<<<<< HEAD
-                                                {reservation.status === 'confirmed' ? '예약 확정' : 
-=======
                                                 {
                                                 reservation.status === 'isPast'? '사용완료':
                                                 reservation.status === 'confirmed' ? '예약 확정' : 
->>>>>>> 902477c (initial commit)
                                                  reservation.status === 'pending' ? '대기 중' : '취소됨'}
                                             </span>
                                         </div>
@@ -322,19 +307,12 @@ const MyPage = () => {
                                 {trainReservations.map((reservation) => (
                                     <div key={reservation.id} className="reservation-card train-reservation">
                                         <div className="reservation-header">
-<<<<<<< HEAD
-                                            <h3>🚂 {reservation.trainName}</h3>
-                                            <span className={`status ${reservation.status}`}>
-                                                {reservation.status === 'confirmed' ? '예약 확정' : 
-                                                 reservation.status === 'pending' ? '대기 중' : '취소됨'}
-=======
                                             <h3><TbTrain size={20} /> {reservation.trainName}</h3>
                                             <span className={`status ${reservation.status}`}>
                                                 {
                                                 reservation.status === 'isPast'? '사용완료':
                                                 reservation.status === 'confirmed' ? '예약 확정' : 
                                                 reservation.status === 'pending' ? '대기 중' : '취소됨'}
->>>>>>> 902477c (initial commit)
                                             </span>
                                         </div>
                                         <div className="reservation-details">
@@ -342,13 +320,9 @@ const MyPage = () => {
                                             <p><strong>도착역:</strong> {reservation.arrivalStation}</p>
                                             <p><strong>출발일시:</strong> {reservation.departureTime.toLocaleString()}</p>
                                             <p><strong>도착일시:</strong> {reservation.arrivalTime.toLocaleString()}</p>
-<<<<<<< HEAD
-                                            <p><strong>좌석:</strong> {reservation.seatInfo}</p>
-=======
                                             <p><strong>기차번호:</strong> {reservation.trainNumber}</p>
                                             <p><strong>좌석:</strong> {reservation.seatInfo}</p>
                                             <p><strong>출발일자:</strong> {reservation.travelDate}</p> 
->>>>>>> 902477c (initial commit)
                                             <p><strong>총 금액:</strong> {reservation.totalPrice?.toLocaleString()}원</p>
                                         </div>
                                         <div className="reservation-actions">

@@ -85,14 +85,9 @@
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-<<<<<<< HEAD
-  font-size: 20px;
-  color: #666;
-=======
   font-size: 2rem;
   color: #666;
   margin-top: 23px;
->>>>>>> 902477c (initial commit)
 }
 
 .date-section {

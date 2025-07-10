@@ -58,10 +58,6 @@ const RestaurantRegisterPage = ({ isAdmin = false }) => {
     formData.append('openTime', restaurantInfo.openTime);
     formData.append('closeTime', restaurantInfo.closeTime);
     formData.append('description', restaurantInfo.description);
-<<<<<<< HEAD
-    formData.append('priceRange', restaurantInfo.priceRange);
-=======
->>>>>>> 902477c (initial commit)
     formData.append('hasParking', restaurantInfo.hasParking);
     formData.append('hasReservation', restaurantInfo.hasReservation);
     formData.append('hasDelivery', restaurantInfo.hasDelivery);

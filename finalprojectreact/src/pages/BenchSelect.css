@@ -53,17 +53,11 @@
 }
 
 .row-arrow {
-<<<<<<< HEAD
-    font-size: 1rem;
-    color: #777;
-    text-align: center;
-=======
     display: flex;
     align-items: center;
     justify-content: center;
     color: #666;
     margin: 0 10px;
->>>>>>> 902477c (initial commit)
 }
 
 .seat-box {
@@ -122,24 +116,17 @@
 }
 
 .route-info {
-<<<<<<< HEAD
-    margin-bottom: 4px;
-    font-weight: bold;
-=======
     font-size: 1.2rem;
     margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
->>>>>>> 902477c (initial commit)
 }
 
 .train-info-top {
     margin-bottom: 10px;
     color: #555;
-<<<<<<< HEAD
-=======
 }
 
 .train-header-title {
@@ -151,5 +138,4 @@
 .train-header-title svg {
     vertical-align: middle;
     margin-bottom: 2px;
->>>>>>> 902477c (initial commit)
 }

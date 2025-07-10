@@ -4,11 +4,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import "./CheckTicketOne.css"; 
 import { BookingContext } from "../contexts/BookingContext";
-<<<<<<< HEAD
-=======
 import { TbTrain } from "react-icons/tb";
 import { BsCart4 } from "react-icons/bs";
->>>>>>> 902477c (initial commit)
 
 const CheckTicketOne = () => {
     const navigate = useNavigate();
@@ -107,15 +104,9 @@ const CheckTicketOne = () => {
     return (
         <div className="check-ticket-one">
             {/* 상단 헤더 */}
-<<<<<<< HEAD
-            <TrainHeader title={<Button text={"🚄여행 "} onClick={() => navigate('/TrainHome')}/>}
-                leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
-                rightChild={<Button text={"📦"} onClick={() => navigate('/TrainBasket')}/>} 
-=======
             <TrainHeader title={<Button text={<div className="train-header-title"><TbTrain size={50} /> <span>여행</span></div>} onClick={() => navigate('/TrainHome')}/>}
                 leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
                 rightChild={<Button text={<BsCart4 size={30} />} onClick={() => navigate('/TrainBasket')}/>} 
->>>>>>> 902477c (initial commit)
             />
 
             <div className="ticket-info">
@@ -145,14 +136,10 @@ const CheckTicketOne = () => {
                         <div key={index} className={`train-item ${isOpen ? 'open' : ''}`}>
                             <div className="train-info">
                                 <div className="train-type">
-<<<<<<< HEAD
-                                    <span className="train-name">{train.trainType} 🚄 </span>
-=======
                                     <span className="train-name">
                                         <span>{train.trainType}</span>
                                         <TbTrain size={18} />
                                     </span>
->>>>>>> 902477c (initial commit)
                                     <span className="train-number">train-no : {train.trainNo}</span>
                                 </div>
                                 <div className="time-info">

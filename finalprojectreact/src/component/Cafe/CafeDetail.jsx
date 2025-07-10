@@ -4,11 +4,8 @@ import axios from 'axios';
 import CafeReviews from './CafeReviews';
 import CafeMapModal from './CafeMapModal';
 import './Cafe.css';
-<<<<<<< HEAD
-=======
 import { IoCamera, IoLocationSharp, IoWifi } from "react-icons/io5";
 import { MdLocalParking } from "react-icons/md";
->>>>>>> 902477c (initial commit)
 
 const CafeDetail = () => {
     const { id } = useParams();
@@ -61,37 +58,10 @@ const CafeDetail = () => {
         setImageLoadError(false);
     };
 
-<<<<<<< HEAD
-    const getImageUrl = (imageUrl) => {
-        if (!imageUrl) return null;
-        return `http://10.100.105.22:8080/api/images${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
-    };
-
-=======
->>>>>>> 902477c (initial commit)
     const handleImageError = (e, imageIndex) => {
         console.error('Image load failed for index:', imageIndex);
         console.error('Failed URL:', e.target.src);
         
-<<<<<<< HEAD
-        const imageUrl = cafe.images[imageIndex]?.imageUrl;
-        const alternativeUrls = [
-            `http://10.100.105.22:8080${imageUrl}`,
-            `http://10.100.105.22:8080/api/images${imageUrl}`,
-            `http://10.100.105.22:8080/upload${imageUrl.replace('/upload', '')}`,
-        ];
-        
-        let currentAttempt = parseInt(e.target.dataset.attempt || '0');
-        if (currentAttempt < alternativeUrls.length) {
-            console.log(`Trying alternative URL ${currentAttempt + 1}:`, alternativeUrls[currentAttempt]);
-            e.target.dataset.attempt = (currentAttempt + 1).toString();
-            e.target.src = alternativeUrls[currentAttempt];
-        } else {
-            console.error('All alternative URLs failed');
-            setImageLoadError(true);
-        }
-=======
->>>>>>> 902477c (initial commit)
     };
 
     if (loading) {
@@ -109,22 +79,14 @@ const CafeDetail = () => {
                 <div className="cafe-images-section">
                     <div className="main-image-container" onClick={() => handleImageClick(0)}>
                         <img 
-<<<<<<< HEAD
-                            src={getImageUrl(cafe.images[0]?.imageUrl)}
-=======
                             src={(cafe.images[0].imageUrl)}
->>>>>>> 902477c (initial commit)
                             alt={cafe.name} 
                             className="main-image"
                         />
                         <div className="image-overlay">
-<<<<<<< HEAD
-                            <span className="view-images-text">📷 이미지 보기</span>
-=======
                             <span className="view-images-text">
                                 <IoCamera size={20} /> 이미지 보기
                             </span>
->>>>>>> 902477c (initial commit)
                         </div>
                     </div>
                     <div className="thumbnail-container">
@@ -135,11 +97,7 @@ const CafeDetail = () => {
                                 onClick={() => handleImageClick(index + 1)}
                             >
                                 <img 
-<<<<<<< HEAD
-                                    src={getImageUrl(image.imageUrl)}
-=======
                                     src={image.imageUrl}
->>>>>>> 902477c (initial commit)
                                     alt={`${cafe.name} ${index + 2}`}
                                     className="thumbnail"
                                 />
@@ -164,19 +122,11 @@ const CafeDetail = () => {
                     <p>
                         <strong>주소:</strong> {cafe.address}
                         <button 
-<<<<<<< HEAD
-                            className="map-button"
-                            onClick={() => setShowMapModal(true)}
-                            title="지도에서 위치 보기"
-                        >
-                            📍 지도보기
-=======
                             className="map-view-button"
                             onClick={() => setShowMapModal(true)}
                             title="지도에서 위치 보기"
                         >
                             <IoLocationSharp size={18} /> 지도보기
->>>>>>> 902477c (initial commit)
                         </button>
                     </p>
                     <p><strong>전화번호:</strong> {cafe.phone}</p>
@@ -189,17 +139,10 @@ const CafeDetail = () => {
                 {/* 카페 특징 */}
                 <div className="cafe-features">
                     <div className={`feature-icon ${cafe.wifi ? 'active' : ''}`}>
-<<<<<<< HEAD
-                        📶 Wi-Fi {cafe.wifi ? '가능' : '불가'}
-                    </div>
-                    <div className={`feature-icon ${cafe.parking ? 'active' : ''}`}>
-                        🅿️ 주차 {cafe.parking ? '가능' : '불가'}
-=======
                         <IoWifi size={18} /> Wi-Fi {cafe.wifi ? '가능' : '불가'}
                     </div>
                     <div className={`feature-icon ${cafe.parking ? 'active' : ''}`}>
                         <MdLocalParking size={18} /> 주차 {cafe.parking ? '가능' : '불가'}
->>>>>>> 902477c (initial commit)
                     </div>
                 </div>
 
@@ -209,37 +152,6 @@ const CafeDetail = () => {
                 </div>
             </div>
 
-<<<<<<< HEAD
-            {/* 메뉴 정보 섹션 */}
-            {cafe.menus && cafe.menus.length > 0 && (
-                <div className="menu-section">
-                    <h2>메뉴</h2>
-                    <div className="menu-grid">
-                        {cafe.menus.map((menu, index) => (
-                            <div key={index} className="menu-card">
-                                <div className="menu-image-container">
-                                    {menu.menuImages && menu.menuImages.length > 0 && menu.menuImages[0]?.imageUrl ? (
-                                        <img 
-                                            src={getImageUrl(menu.menuImages[0].imageUrl)} 
-                                            alt={menu.name}
-                                            className="menu-image"
-                                        />
-                                    ) : (
-                                        <div className="no-image">☕ 이미지 없음</div>
-                                    )}
-                                </div>
-                                <div className="menu-info">
-                                    <h3>{menu.name}</h3>
-                                    {menu.description && <p>{menu.description}</p>}
-                                    <p className="menu-price">{menu.price?.toLocaleString() || 0}원</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-=======
->>>>>>> 902477c (initial commit)
 
             {/* 리뷰 섹션 */}
             <div className="cafe-detail-section">
@@ -247,11 +159,7 @@ const CafeDetail = () => {
             </div>
 
             {/* 전체 이미지 모달 */}
-<<<<<<< HEAD
-            {showAllImages && (
-=======
             {/* {showAllImages && (
->>>>>>> 902477c (initial commit)
                 <div className="modal-overlay" onClick={handleModalClose}>
                     <div className="modal-content image-gallery-modal" onClick={e => e.stopPropagation()}>
                         <button className="modal-close" onClick={handleModalClose}>×</button>
@@ -279,10 +187,6 @@ const CafeDetail = () => {
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-            )}
-
-=======
             )} */}
             {showAllImages && (
                 <div className="modal-overlay" onClick={handleModalClose}>
@@ -342,7 +246,6 @@ const CafeDetail = () => {
                     </div>
                 </div>
             )}
->>>>>>> 902477c (initial commit)
             {/* 지도 모달 */}
             <CafeMapModal 
                 isOpen={showMapModal}

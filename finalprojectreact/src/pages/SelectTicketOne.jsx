@@ -5,11 +5,8 @@ import { useContext, useState } from "react";
 import "./SelectTicketOne.css";
 import { BookingContext } from "../contexts/BookingContext";
 import axios from "axios";
-<<<<<<< HEAD
-=======
 import { TbTrain } from "react-icons/tb";
 import { BsCart4, BsArrowRightShort, BsChevronRight } from "react-icons/bs";
->>>>>>> 902477c (initial commit)
 
 const SelectTicketOne = () => {
     const navigate = useNavigate();
@@ -95,12 +92,6 @@ const SelectTicketOne = () => {
     return (
         <div className="select-ticket-one">
             {/* 상단 헤더 */}
-<<<<<<< HEAD
-            <TrainHeader title={<Button text={"🚄여행 "} onClick={() => navigate('/TrainHome')}/>}
-                leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
-                rightChild={<Button text={"📦"} onClick={() => navigate('/TrainBasket')}/>} 
-            />
-=======
             <TrainHeader 
                 title={<Button text={<div className="train-header-title"><TbTrain size={50} /> <span>여행</span></div>} onClick={() => navigate('/TrainHome')}/>}
                 leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
@@ -121,33 +112,20 @@ const SelectTicketOne = () => {
                     ))}
                 </div>
             )}
->>>>>>> 902477c (initial commit)
 
             <div className="ticket-card">
             <h2>선택한 승차권</h2>
                 <div className="ticket-top">
-<<<<<<< HEAD
-                    <div className="logo">KTX 🚄</div>
-=======
                     <div className="logo">KTX <TbTrain size={20} /></div>
->>>>>>> 902477c (initial commit)
                     <div className="time-block">
                         <div className="time">{depTime}</div>
                         <div className="station">{booking.departure}</div>
                     </div>
-<<<<<<< HEAD
-                    <div className="arrow">→</div>
-=======
                     <div className="arrow"><BsArrowRightShort size={24} /></div>
->>>>>>> 902477c (initial commit)
                     <div className="time-block">
                         <div className="time">{arrTime}</div>
                         <div className="station">{booking.arrival}</div>
                     </div>
-<<<<<<< HEAD
-                    {/* <button className="fare-btn">운임요금</button> */}
-=======
->>>>>>> 902477c (initial commit)
                 </div>
 
                 <hr className="divider" />
@@ -162,24 +140,6 @@ const SelectTicketOne = () => {
                 <div className="price">{fare.toLocaleString()}원</div>
             </div>
 
-<<<<<<< HEAD
-            <div className="seller-info-row" onClick={() => setShowSellerInfo(!showSellerInfo)}>
-                판매자 정보 안내 <span className={`seller-arrow ${showSellerInfo ? 'open' : ''}`}>&gt;</span>
-            </div>
-
-            {showSellerInfo && (
-                <div className="seller-detail">
-                    {sellerInfo.map((item) => (
-                        <div key={item.label} className="seller-row">
-                            <div className="seller-label">{item.label}</div>
-                            <div className="seller-value">{item.value}</div>
-                        </div>
-                    ))}
-                </div>
-            )}
-
-=======
->>>>>>> 902477c (initial commit)
             <div className="bottom-bar">
                 <div className="summary-text">편도 ({passengerText})</div>
                 <div className="summary-price">{fare.toLocaleString()}원</div>

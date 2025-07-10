@@ -29,12 +29,9 @@
   font-size: 1.3rem;
   color: #0047AB;
   margin-bottom: 4px;
-<<<<<<< HEAD
-=======
   display: flex;
   align-items: center;
   gap: 4px;
->>>>>>> 902477c (initial commit)
 }
 
 .time-block {
@@ -51,12 +48,9 @@
 .arrow {
   font-size: 1.2rem;
   color: #666;
-<<<<<<< HEAD
-=======
   display: flex;
   align-items: center;
   justify-content: center;
->>>>>>> 902477c (initial commit)
 }
 .fare-btn {
   position: absolute;
@@ -107,17 +101,12 @@
   cursor: pointer;
 }
 .seller-arrow {
-<<<<<<< HEAD
-  font-size: 1.1rem;
-  color: #666;
-=======
   display: inline-flex;
   align-items: center;
   transition: transform 0.3s ease;
 }
 .seller-arrow.open svg {
   transform: rotate(90deg);
->>>>>>> 902477c (initial commit)
 }
 .bottom-bar {
   position: fixed;
@@ -176,13 +165,6 @@
   word-break: break-all;
   white-space: normal;
 }
-<<<<<<< HEAD
-.seller-arrow {
-  transition:transform .2s ease;
-}
-.seller-arrow.open {
-  transform:rotate(90deg);
-=======
 .train-header-title {
   display: flex;
   align-items: center;
@@ -192,5 +174,4 @@
 .train-header-title svg {
   vertical-align: middle;
   margin-bottom: 2px;
->>>>>>> 902477c (initial commit)
 } 

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './StationModal.css';
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-=======
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { TbTrain } from "react-icons/tb";
->>>>>>> 902477c (initial commit)
 
 const StationModal = ({ isOpen, onClose, onSelect, title = "출발역 선택", saveRecentSearch, recentSearches, onDeleteRecent, onDeleteAll, onRecentSearchSelect }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -264,11 +261,7 @@ const StationModal = ({ isOpen, onClose, onSelect, title = "출발역 선택", s
             onChange={handleSearch}
           />
           <button className="search-button">
-<<<<<<< HEAD
-            <span>🔍</span>
-=======
             <FaMagnifyingGlass size={18} color="#666" />
->>>>>>> 902477c (initial commit)
           </button>
         </div>
 
@@ -283,11 +276,7 @@ const StationModal = ({ isOpen, onClose, onSelect, title = "출발역 선택", s
                     className="station-list-item"
                     onClick={() => handleSelect(station.name)}
                   >
-<<<<<<< HEAD
-                    {station.name} 🚄
-=======
                     {station.name} <TbTrain size={18} color="#666" />
->>>>>>> 902477c (initial commit)
                   </button>
                 ))}
               </div>
@@ -318,11 +307,7 @@ const StationModal = ({ isOpen, onClose, onSelect, title = "출발역 선택", s
                   <div className="recent-list">
                     {recentSearches.map((item, index) => (
                       <div key={index} className="recent-item">
-<<<<<<< HEAD
-                        <span className="route-icon">🚄</span>
-=======
                         <span className="route-icon"><TbTrain size={18} color="#666" /></span>
->>>>>>> 902477c (initial commit)
                         <div className="location-box">
                           <span onClick={() => handleRecentSelects(item.stations)}>{item.stations[0]} - {item.stations[1]} </span>
                         </div>

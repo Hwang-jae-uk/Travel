@@ -7,11 +7,8 @@ import { requestPayment } from "@portone/browser-sdk/v2";
 import axios from "axios";
 import "./TrainBasket.css"; 
 import { PaymentClient } from "@portone/server-sdk";
-<<<<<<< HEAD
-=======
 import { TbTrain } from "react-icons/tb";
 import { BsCart4 } from "react-icons/bs";
->>>>>>> 902477c (initial commit)
 
 const TrainBasket = () => {
     const navigate = useNavigate();
@@ -73,17 +70,10 @@ const TrainBasket = () => {
     }, 0);
 
     // 아동 할인 금액 건당(50% 할인)
-<<<<<<< HEAD
-    const calChilerenFare = (item) => {
-        const { initialOneTicket, selectedTrain } = item;
-        const passengers = selectedTrain.fare / 2; 
-        return passengers * initialOneTicket.children;
-=======
     const calChildren = (item) => {
         const { initialOneTicket, selectedTrain } = item;
         const childrenFare = selectedTrain.fare / 2; 
         return childrenFare * initialOneTicket.children;
->>>>>>> 902477c (initial commit)
     }; 
     
     const totalFare = basketItems.reduce((sum, itm, idx) => sum + (checkedList[idx] ? calcFare(itm) : 0), 0);
@@ -244,16 +234,10 @@ const TrainBasket = () => {
     return (
         <div className="train-basket">
             {/* 상단 헤더 */}
-<<<<<<< HEAD
-            <TrainHeader title={<Button text={"🚄여행 "} onClick={() => navigate('/TrainHome')}/>}
-                leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
-                rightChild={<Button text={"📦"} onClick={() => navigate('/TrainBasket')}/>} 
-=======
             <TrainHeader 
                 title={<Button text={<div className="train-header-title"><TbTrain size={50} /> <span>여행</span></div>} onClick={() => navigate('/TrainHome')}/>}
                 leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />}
                 rightChild={<Button text={<BsCart4 size={30} />} onClick={() => navigate('/TrainBasket')}/>}
->>>>>>> 902477c (initial commit)
             />
             <h2 className="basket-title">장바구니</h2>
             {/* 전체 선택 & 액션 */}
@@ -270,17 +254,10 @@ const TrainBasket = () => {
                     ? (item.direction === 'depart' ? `왕복(가는날) ${item.initialOneTicket.departure} ➡ ${item.initialOneTicket.arrival}` : `왕복(오는날) ${item.initialOneTicket.arrival} ➡ ${item.initialOneTicket.departure}`)
                     : `편도 ${item.initialOneTicket.departure} ➡ ${item.initialOneTicket.arrival}`;
                 const dateinfodirection = item.roundTrip ? (item.direction === 'depart' ? item.initialOneTicket.departDate : item.initialOneTicket.returnDate ) : item.initialOneTicket.departDate;
-<<<<<<< HEAD
-                const totalItemFare = (calcFare(item)- calChilerenFare(item)).toLocaleString();
-                const totaladultsFare = item.selectedTrain.fare * item.initialOneTicket.adults;
-                return (
-                <div key={idx} className={`basket-item ${checkedList[idx] ? 'active' : ''}`}>
-=======
                 const totalItemFare = (calcFare(item)- calChildren(item)).toLocaleString();
                 const totaladultsFare = item.selectedTrain.fare * item.initialOneTicket.adults;
                 return (
                 <div key={idx} className={`train-basket-item ${checkedList[idx] ? 'active' : ''}`}>
->>>>>>> 902477c (initial commit)
                     <div className="item-left">
                         <input type="checkbox" checked={checkedList[idx]} onChange={() => toggleCheckItem(idx)} />
                     </div>
@@ -296,11 +273,7 @@ const TrainBasket = () => {
                             <div className="date-info">{dateinfodirection}</div> 
                             <div className="train-info">{item.selectedTrain.trainType}-{item.selectedTrain.trainNo} | {item.selectedSeats.join(', ')}</div>
                             <div className="fare-info">성인 {item.initialOneTicket.adults}명 : {totaladultsFare.toLocaleString()}원 </div>
-<<<<<<< HEAD
-                            <div className="fare-info">아동 {item.initialOneTicket.children}명 할인(50%) : {calChilerenFare(item).toLocaleString()}원</div>
-=======
                             <div className="fare-info">아동 {item.initialOneTicket.children}명 할인(50%) : -{calChildren(item).toLocaleString()}원</div>
->>>>>>> 902477c (initial commit)
                         </div>
                         <div className="item-price">
                             
@@ -317,11 +290,7 @@ const TrainBasket = () => {
             <div className="reserve-summary">
                 <h3>결제 요약</h3>
                 <div className="summary-row"><span>상품 금액</span><span>{totalFare.toLocaleString()}원</span></div>
-<<<<<<< HEAD
-                <div className="summary-row"><span>할인 금액</span><span>{totalChildrenFare.toLocaleString()}원</span></div>
-=======
                 <div className="summary-row"><span>할인 금액</span><span>-{totalChildrenFare.toLocaleString()}원</span></div>
->>>>>>> 902477c (initial commit)
                 <hr />
                 <div className="summary-row total"><span>결제 예상 금액</span><span>{(totalFare-totalChildrenFare).toLocaleString()}원</span></div>
             </div>

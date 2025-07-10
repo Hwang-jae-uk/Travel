@@ -3,10 +3,7 @@ import axios from 'axios';
 import CafeCardAdmin from './CafeCardAdmin';
 import './Cafe.css';
 import { provinces, parseAddress } from '../Hotel/addressUtils';
-<<<<<<< HEAD
-=======
 import { IoLocationSharp } from "react-icons/io5";
->>>>>>> 902477c (initial commit)
 
 const CafeListAdmin = () => {
     const [cafes, setCafes] = useState([]);
@@ -127,15 +124,10 @@ const CafeListAdmin = () => {
                         />
                     </div>
                     
-<<<<<<< HEAD
-                    <div className="search-field">
-                        <label htmlFor="province-search">📍 도/특별시/광역시</label>
-=======
                     <div className="search-group">
                         <label htmlFor="province-search">
                             <IoLocationSharp size={18} /> 도/특별시/광역시
                         </label>
->>>>>>> 902477c (initial commit)
                         <select
                             id="province-search"
                             value={searchFilters.province}

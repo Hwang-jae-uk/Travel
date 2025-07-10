@@ -3,15 +3,12 @@ import CafeCard from "./CafeCard";
 import axios from "axios";
 import { provinces, parseAddress } from '../Hotel/addressUtils';
 import './Cafe.css';
-<<<<<<< HEAD
-=======
 import { IoLocationSharp } from "react-icons/io5";
 import { BiCoffee } from "react-icons/bi";
 import { FaCity } from "react-icons/fa";
 import { IoWifi } from "react-icons/io5";
 import { MdLocalParking } from "react-icons/md";
 import { GrPowerReset } from "react-icons/gr";
->>>>>>> 902477c (initial commit)
 
 const CafeList = () => {
     const [cafes, setCafes] = useState([]);
@@ -29,10 +26,7 @@ const CafeList = () => {
         try {
             const response = await axios.get('/api/cafe/list');
             console.log('Received cafe data:', response.data);
-<<<<<<< HEAD
-=======
             
->>>>>>> 902477c (initial commit)
             return response.data;
         } catch (error) {
             console.error('Error fetching cafes:', error);
@@ -133,11 +127,7 @@ const CafeList = () => {
     if (cafes.length === 0) {
         return (
             <div className="no-cafes-message">
-<<<<<<< HEAD
-                <h2>☕ 등록된 카페가 없습니다</h2>
-=======
                 <h2><BiCoffee size={20} /> 등록된 카페가 없습니다</h2>
->>>>>>> 902477c (initial commit)
                 <p>첫 번째 카페를 등록해보세요!</p>
             </div>
         );
@@ -146,31 +136,16 @@ const CafeList = () => {
     return (
         <div className="cafe-list-container">
             {/* 검색 필터 섹션 */}
-<<<<<<< HEAD
-            <div className="search-filters">
-                <div className="search-row">
-                    <div className="search-field">
-                        <label htmlFor="name-search">☕ 카페명</label>
-=======
             <div className="cafe-search-filters">
                 <div className="cafe-search-row">
                     <div className="cafe-search-field">
                         <label htmlFor="name-search"><BiCoffee size={18} /> 카페명</label>
->>>>>>> 902477c (initial commit)
                         <input
                             id="name-search"
                             type="text"
                             placeholder="카페명을 입력하세요"
                             value={searchFilters.name}
                             onChange={(e) => handleFilterChange('name', e.target.value)}
-<<<<<<< HEAD
-                            className="search-input"
-                        />
-                    </div>
-                    
-                    <div className="search-field">
-                        <label htmlFor="province-search">📍 도/특별시/광역시</label>
-=======
                             className="cafe-search-input"
                         />
                     </div>
@@ -179,16 +154,11 @@ const CafeList = () => {
                         <label htmlFor="province-search">
                             <IoLocationSharp size={18} /> 도/특별시/광역시
                         </label>
->>>>>>> 902477c (initial commit)
                         <select
                             id="province-search"
                             value={searchFilters.province}
                             onChange={(e) => handleFilterChange('province', e.target.value)}
-<<<<<<< HEAD
-                            className="search-select"
-=======
                             className="cafe-search-select"
->>>>>>> 902477c (initial commit)
                         >
                             <option value="">전체</option>
                             {provinces.map(province => (
@@ -197,32 +167,19 @@ const CafeList = () => {
                         </select>
                     </div>
                     
-<<<<<<< HEAD
-                    <div className="search-field">
-                        <label htmlFor="city-search">🏘️ 시/구</label>
-=======
                     <div className="cafe-search-field">
                         <label htmlFor="city-search"><FaCity size={18} /> 시/구</label>
->>>>>>> 902477c (initial commit)
                         <input
                             id="city-search"
                             type="text"
                             placeholder="시/구를 입력하세요"
                             value={searchFilters.city}
                             onChange={(e) => handleFilterChange('city', e.target.value)}
-<<<<<<< HEAD
-                            className="search-input"
-                        />
-                    </div>
-                    
-                    <div className="search-field">
-=======
                             className="cafe-search-input"
                         />
                     </div>
                     
                     <div className="cafe-search-field">
->>>>>>> 902477c (initial commit)
                         <label>필터 옵션</label>
                         <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                             <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
@@ -231,11 +188,7 @@ const CafeList = () => {
                                     checked={searchFilters.wifi}
                                     onChange={(e) => handleFilterChange('wifi', e.target.checked)}
                                 />
-<<<<<<< HEAD
-                                📶 Wi-Fi
-=======
                                 <IoWifi size={18} /> Wi-Fi
->>>>>>> 902477c (initial commit)
                             </label>
                             <label style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                                 <input
@@ -243,24 +196,11 @@ const CafeList = () => {
                                     checked={searchFilters.parking}
                                     onChange={(e) => handleFilterChange('parking', e.target.checked)}
                                 />
-<<<<<<< HEAD
-                                🅿️ 주차
-=======
                                 <MdLocalParking size={18} /> 주차
->>>>>>> 902477c (initial commit)
                             </label>
                         </div>
                     </div>
                     
-<<<<<<< HEAD
-                    <div className="search-actions">
-                        <button 
-                            onClick={resetFilters}
-                            className="reset-button"
-                            title="검색 초기화"
-                        >
-                            🔄 초기화
-=======
                     <div className="cafe-search-actions">
                         <button 
                             onClick={resetFilters}
@@ -268,7 +208,6 @@ const CafeList = () => {
                             title="검색 초기화"
                         >
                             <GrPowerReset size={18} /> 초기화
->>>>>>> 902477c (initial commit)
                         </button>
                     </div>
                 </div>

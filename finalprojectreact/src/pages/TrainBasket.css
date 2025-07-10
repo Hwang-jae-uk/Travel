@@ -42,11 +42,7 @@
 }
 
 /* 장바구니 아이템 */
-<<<<<<< HEAD
-.basket-item {
-=======
 .train-basket-item {
->>>>>>> 902477c (initial commit)
   display: flex;
   align-items: flex-start;
   background: #fff;
@@ -198,8 +194,6 @@
 .max-basket-info strong {
     color: #007bff;
     font-weight: 600;
-<<<<<<< HEAD
-=======
 }
 
 .train-header-title {
@@ -211,5 +205,4 @@
 .train-header-title svg {
   vertical-align: middle;
   margin-bottom: 2px;
->>>>>>> 902477c (initial commit)
 } 

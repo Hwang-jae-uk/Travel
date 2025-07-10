@@ -7,11 +7,7 @@ import axios from 'axios';
 
 const HotelCardAdmin = ({ hotel, onHotelDeleted }) => {
   const navigate = useNavigate();
-<<<<<<< HEAD
-  const imageURL = hotel.images && hotel.images.length > 0 ? 'http://10.100.105.22:8080/api/images' + encodeURI(hotel.images[0].imageUrl) : null;
-=======
   const imageURL = hotel.images && hotel.images.length > 0 ? (hotel.images[0].imageUrl) : null;
->>>>>>> 902477c (initial commit)
 
   const handleClick = (e) => {
     // 수정/삭제 버튼 클릭 시에는 상세 페이지로 이동하지 않음
@@ -87,11 +83,7 @@ const HotelCardAdmin = ({ hotel, onHotelDeleted }) => {
       
       {/* 관리자 액션 버튼들 */}
       <button 
-<<<<<<< HEAD
-        className="edit-btn" 
-=======
         className="hotel-edit-btn" 
->>>>>>> 902477c (initial commit)
         onClick={handleEdit}
         title="호텔 수정"
       >

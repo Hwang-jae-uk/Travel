@@ -7,10 +7,7 @@ import PassengerModal from "./PassengerModal";
 import CheckTicketOne from "./CheckTicketOne"; 
 import { BookingContext } from "../contexts/BookingContext";
 import { useContext } from "react";
-<<<<<<< HEAD
-=======
 import { RiArrowLeftRightFill } from "react-icons/ri";
->>>>>>> 902477c (initial commit)
 
 const HomePage = () => {
   const { booking, setBooking, departSchedules: ctxDepart, setDepartSchedules, returnSchedules: ctxReturn, setReturnSchedules } = useContext(BookingContext);
@@ -220,11 +217,7 @@ const HomePage = () => {
         </div>
 
         <button className="swap-button" onClick={handleSwapStations}>
-<<<<<<< HEAD
-          <span>🔄</span>
-=======
           <RiArrowLeftRightFill />
->>>>>>> 902477c (initial commit)
         </button>
 
         <div className="location-container">

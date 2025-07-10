@@ -2,12 +2,9 @@ import { useEffect, useState } from "react"
 import HotelCard from "./HotelCard";
 import axios from "axios";
 import { provinces, parseAddress } from './addressUtils';
-<<<<<<< HEAD
-=======
 import { MdLocalHotel } from "react-icons/md";
 import { FaMapMarkerAlt, FaCity } from "react-icons/fa";
 import { GrPowerReset } from "react-icons/gr";
->>>>>>> 902477c (initial commit)
 
 const HotelList = () => {
     const [hotels, setHotels] = useState([]);
@@ -141,10 +138,6 @@ const HotelList = () => {
             <div className="no-hotels-message">
                 <h2>🏨 등록된 호텔이 없습니다</h2>
                 <p>첫 번째 호텔을 등록해보세요!</p>
-<<<<<<< HEAD
-                <p>디버그 정보: hotels 배열 길이 = {hotels.length}</p>
-=======
->>>>>>> 902477c (initial commit)
             </div>
         );
     }
@@ -155,14 +148,10 @@ const HotelList = () => {
             <div className="search-filters">
                 <div className="search-row">
                     <div className="search-field">
-<<<<<<< HEAD
-                        <label htmlFor="name-search">🏨 호텔명</label>
-=======
                         <label htmlFor="name-search" className="search-label">
                             <MdLocalHotel size={20} />
                             <span>호텔명</span>
                         </label>
->>>>>>> 902477c (initial commit)
                         <input
                             id="name-search"
                             type="text"
@@ -174,14 +163,10 @@ const HotelList = () => {
                     </div>
                     
                     <div className="search-field">
-<<<<<<< HEAD
-                        <label htmlFor="province-search">📍 도/특별시/광역시</label>
-=======
                         <label htmlFor="province-search" className="search-label">
                             <FaMapMarkerAlt size={18} />
                             <span>도/특별시/광역시</span>
                         </label>
->>>>>>> 902477c (initial commit)
                         <select
                             id="province-search"
                             value={searchFilters.province}
@@ -196,14 +181,10 @@ const HotelList = () => {
                     </div>
                     
                     <div className="search-field">
-<<<<<<< HEAD
-                        <label htmlFor="city-search">🏘️ 시/구</label>
-=======
                         <label htmlFor="city-search" className="search-label">
                             <FaCity size={18} />
                             <span>시/구</span>
                         </label>
->>>>>>> 902477c (initial commit)
                         <input
                             id="city-search"
                             type="text"
@@ -216,13 +197,6 @@ const HotelList = () => {
                     
                     <div className="search-actions">
                         <button 
-<<<<<<< HEAD
-                            onClick={resetFilters}
-                            className="reset-button"
-                            title="검색 초기화"
-                        >
-                            🔄 초기화
-=======
                             className="filter-reset-button"
                             title="검색 초기화"
                             onClick={() => {
@@ -234,7 +208,6 @@ const HotelList = () => {
                             }}
                         >
                             <GrPowerReset size={18} /> 초기화
->>>>>>> 902477c (initial commit)
                         </button>
                     </div>
                 </div>

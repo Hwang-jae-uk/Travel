@@ -3,18 +3,11 @@ import PropTypes from 'prop-types';
 import './Hotel.css';
 import { useNavigate } from 'react-router-dom';
 import { parseAddress } from './addressUtils';
-<<<<<<< HEAD
-
-const HotelCard = ({ hotel }) => {
-  const navigate = useNavigate();
-  const imageURL = hotel.images && hotel.images.length > 0 ?'http://10.100.105.22:8080/api/images'+encodeURI(hotel.images[0].imageUrl): null;
-=======
 import { IoLocationSharp } from 'react-icons/io5';
 
 const HotelCard = ({ hotel }) => {
   const navigate = useNavigate();
   const imageURL = hotel.images && hotel.images.length > 0 ?(hotel.images[0].imageUrl): null;
->>>>>>> 902477c (initial commit)
 
   const handleClick = () => {
     navigate(`/HotelDetail/${hotel.id}`);
@@ -43,14 +36,10 @@ const HotelCard = ({ hotel }) => {
           {province ? (
             <div className="address-parsed">
               <span className="province">{province}</span>
-<<<<<<< HEAD
-              <span className="city">{fullAddress}</span>
-=======
               <div className="city">
                 <IoLocationSharp size={18} className="city-icon" />
                 <span>{fullAddress}</span>
               </div>
->>>>>>> 902477c (initial commit)
             </div>
           ) : (
             <span className="address-full">{fullAddress}</span>

@@ -197,11 +197,7 @@ const RestaurantReviews = ({ restaurantId }) => {
     };
 
     const renderStars = (rating) => {
-<<<<<<< HEAD
-        return '★'.repeat(rating) + '☆'.repeat(5 - rating);
-=======
         return '⭐'.repeat(rating);
->>>>>>> 902477c (initial commit)
     };
 
     const getCurrentUserEmail = () => {
@@ -211,11 +207,7 @@ const RestaurantReviews = ({ restaurantId }) => {
     // 이미지 모달 열기
     const handleImageClick = (images, startIndex) => {
         // 이미지 URL 배열 생성
-<<<<<<< HEAD
-        const imageUrls = images.map(url => `http://10.100.105.22:8080/api/images${url}`);
-=======
         const imageUrls = images.map(url => `${url}`);
->>>>>>> 902477c (initial commit)
         setSelectedImages(imageUrls);
         setCurrentImageIndex(startIndex);
         setShowImageModal(true);
@@ -419,11 +411,7 @@ const RestaurantReviews = ({ restaurantId }) => {
                                     {review.imageUrls.map((imageUrl, index) => (
                                         <div key={index} className="review-image-item">
                                             <img 
-<<<<<<< HEAD
-                                                src={`http://10.100.105.22:8080/api/images${imageUrl}`}
-=======
                                                 src={`${imageUrl}`}
->>>>>>> 902477c (initial commit)
                                                 alt={`리뷰 이미지 ${index + 1}`}
                                                 onClick={() => handleImageClick(review.imageUrls, index)}
                                                 style={{ cursor: 'pointer' }}

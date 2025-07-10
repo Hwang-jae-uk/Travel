@@ -44,11 +44,7 @@ async function geocodeAddress(address) {
             console.log('🧹 기본값 캐시 삭제 후 재검색:', address);
             geocodeCache.delete(address);
         } else {
-<<<<<<< HEAD
-            console.log('📦 캐시에서 좌표 반환:', address, cachedCoords);
-=======
             console.log('캐시에서 좌표 반환:', address, cachedCoords);
->>>>>>> 902477c (initial commit)
             return cachedCoords;
         }
     }
@@ -69,11 +65,7 @@ async function geocodeAddress(address) {
 
         if (response.ok) {
             const data = await response.json();
-<<<<<<< HEAD
-            console.log('📍 카카오 주소 검색 응답:', data);
-=======
             console.log('카카오 주소 검색 응답:', data);
->>>>>>> 902477c (initial commit)
             
             if (data.documents && data.documents.length > 0) {
                 const doc = data.documents[0];

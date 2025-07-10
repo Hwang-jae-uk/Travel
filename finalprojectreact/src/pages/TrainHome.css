@@ -18,22 +18,16 @@
   background: rgba(255, 255, 255, 0.4); /* 투명도 조절: 0.0 ~ 1.0 */
   pointer-events: none; /* 클릭 이벤트 통과 */
   z-index: 0;
-<<<<<<< HEAD
-=======
   font-size: 5rem;
   color: #333;
->>>>>>> 902477c (initial commit)
 }
 
 /* 실제 콘텐츠가 오버레이 위에 오도록 */
 .train-home > * {
   position: relative;
   z-index: 1;
-<<<<<<< HEAD
-=======
 }
 .TrainHome-icon {
   font-size: 3rem;
   color: #333;
->>>>>>> 902477c (initial commit)
 }

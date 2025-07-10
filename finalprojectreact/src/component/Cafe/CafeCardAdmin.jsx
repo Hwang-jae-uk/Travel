@@ -2,23 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Cafe.css';
-<<<<<<< HEAD
-=======
 import { IoWifi, IoTime } from "react-icons/io5";
 import { MdLocalParking, MdCoffee } from "react-icons/md";
->>>>>>> 902477c (initial commit)
 
 const CafeCardAdmin = ({ cafe, onDelete }) => {
     const navigate = useNavigate();
 
-<<<<<<< HEAD
-    const getImageUrl = (imageUrl) => {
-        if (!imageUrl) return null;
-        return `http://10.100.105.22:8080/api/images${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
-    };
-=======
     
->>>>>>> 902477c (initial commit)
 
     const handleCardClick = (e) => {
         // 수정/삭제 버튼 클릭 시에는 상세 페이지로 이동하지 않음
@@ -60,11 +50,7 @@ const CafeCardAdmin = ({ cafe, onDelete }) => {
             <div className="cafe-image-container">
                 {cafe.images && cafe.images.length > 0 && cafe.images[0]?.imageUrl ? (
                     <img 
-<<<<<<< HEAD
-                        src={getImageUrl(cafe.images[0].imageUrl)} 
-=======
                         src={(cafe.images[0].imageUrl)} 
->>>>>>> 902477c (initial commit)
                         alt={cafe.name}
                         className="cafe-image"
                         onError={(e) => {
@@ -72,11 +58,7 @@ const CafeCardAdmin = ({ cafe, onDelete }) => {
                         }}
                     />
                 ) : (
-<<<<<<< HEAD
-                    <div className="no-image">☕ 이미지 없음</div>
-=======
                     <div className="no-image"><MdCoffee size={24} /> 이미지 없음</div>
->>>>>>> 902477c (initial commit)
                 )}
             </div>
             
@@ -88,27 +70,16 @@ const CafeCardAdmin = ({ cafe, onDelete }) => {
                 
                 <div className="cafe-features">
                     <span className={`feature ${cafe.wifi ? 'active' : ''}`}>
-<<<<<<< HEAD
-                        📶 Wi-Fi {cafe.wifi ? '가능' : '불가'}
-                    </span>
-                    <span className={`feature ${cafe.parking ? 'active' : ''}`}>
-                        🅿️ 주차 {cafe.parking ? '가능' : '불가'}
-=======
                         <IoWifi size={18} /> Wi-Fi {cafe.wifi ? '가능' : '불가'}
                     </span>
                     <span className={`feature ${cafe.parking ? 'active' : ''}`}>
                         <MdLocalParking size={18} /> 주차 {cafe.parking ? '가능' : '불가'}
->>>>>>> 902477c (initial commit)
                     </span>
                 </div>
                 
                 {cafe.openTime && cafe.closeTime && (
                     <p className="cafe-hours">
-<<<<<<< HEAD
-                        🕐 {cafe.openTime} - {cafe.closeTime}
-=======
                         <IoTime size={18} /> {cafe.openTime} - {cafe.closeTime}
->>>>>>> 902477c (initial commit)
                     </p>
                 )}
             </div>

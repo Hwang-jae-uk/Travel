@@ -39,16 +39,6 @@ const RestaurantCardAdmin = ({ restaurant, onDelete }) => {
         }
     };
 
-<<<<<<< HEAD
-    return (
-        <div className="restaurant-card-admin" onClick={handleCardClick}>
-            <div className="restaurant-image-container">
-                
-                    <img 
-                        src={`http://10.100.105.22:8080/api/images${restaurant.images[0]}`} 
-                        alt={restaurant.name}
-                        className="restaurant-image"
-=======
     console.log(restaurant.images[0].imagePath);
 
     return (
@@ -59,7 +49,6 @@ const RestaurantCardAdmin = ({ restaurant, onDelete }) => {
                         src={`${restaurant.images[0].imagePath}`} 
                         alt={restaurant.name}
                         className="restaurant-card-img"
->>>>>>> 902477c (initial commit)
                         onError={(e) => {
                             e.target.style.display = 'none';
                         }}
@@ -67,11 +56,7 @@ const RestaurantCardAdmin = ({ restaurant, onDelete }) => {
                
             </div>
             
-<<<<<<< HEAD
-            <div className="restaurant-info">
-=======
             <div className="restaurant-card-content">
->>>>>>> 902477c (initial commit)
                 <h3 className="restaurant-name">{restaurant.name}</h3>
                 <p className="restaurant-address">📍 {restaurant.address}</p>
                 <p className="restaurant-phone">📞 {restaurant.phone}</p>
@@ -106,11 +91,7 @@ const RestaurantCardAdmin = ({ restaurant, onDelete }) => {
             </button>
             
             <button 
-<<<<<<< HEAD
-                className="restaurant-remove-btn" 
-=======
                 className="remove-btn" 
->>>>>>> 902477c (initial commit)
                 onClick={handleDelete}
                 title="레스토랑 삭제"
             >

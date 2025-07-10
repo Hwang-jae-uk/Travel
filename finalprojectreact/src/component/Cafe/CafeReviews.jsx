@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Cafe.css';
-<<<<<<< HEAD
-=======
 import { IoCamera } from "react-icons/io5";
->>>>>>> 902477c (initial commit)
 
 const CafeReviews = ({ cafeId }) => {
     const [reviews, setReviews] = useState([]);
@@ -146,11 +143,7 @@ const CafeReviews = ({ cafeId }) => {
     };
 
     const renderStars = (rating) => {
-<<<<<<< HEAD
-        return '★'.repeat(rating) + '☆'.repeat(5 - rating);
-=======
         return '⭐'.repeat(rating);
->>>>>>> 902477c (initial commit)
     };
 
     const getCurrentUserEmail = () => {
@@ -267,17 +260,6 @@ const CafeReviews = ({ cafeId }) => {
                             </div>
                             
                             <div className="image-input">
-<<<<<<< HEAD
-                                <input
-                                    type="file"
-                                    multiple
-                                    accept="image/*"
-                                    onChange={handleImageChange}
-                                    id="cafe-review-images"
-                                />
-                                <label htmlFor="cafe-review-images" className="image-upload-btn">
-                                    📷 사진 추가
-=======
                                 <label className="file-input-label">
                                     <IoCamera size={20} /> 사진 추가
                                     <input
@@ -287,7 +269,6 @@ const CafeReviews = ({ cafeId }) => {
                                         onChange={handleImageChange}
                                         id="cafe-review-images"
                                     />
->>>>>>> 902477c (initial commit)
                                 </label>
                                 
                                 {reviewForm.images.length > 0 && (
@@ -365,11 +346,7 @@ const CafeReviews = ({ cafeId }) => {
                                     {review.imageUrls.map((imageUrl, index) => (
                                         <div key={index} className="review-image-item">
                                             <img 
-<<<<<<< HEAD
-                                                src={`http://10.100.105.22:8080/api/images${imageUrl}`}
-=======
                                                 src={`${imageUrl}`}
->>>>>>> 902477c (initial commit)
                                                 alt={`리뷰 이미지 ${index + 1}`}
                                                 onClick={() => handleImageClick(review.imageUrls, index)}
                                                 style={{ cursor: 'pointer' }}

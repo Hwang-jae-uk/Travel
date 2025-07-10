@@ -4,13 +4,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import "./BenchSelect.css";
 import { BookingContext } from "../contexts/BookingContext";
-<<<<<<< HEAD
-=======
 import { TbTrain } from "react-icons/tb";
 import { BsCart4 } from "react-icons/bs";
 import { BsArrowRightShort, BsArrowUpShort } from "react-icons/bs";
 
->>>>>>> 902477c (initial commit)
 
 const BenchSelect = () => {
     const navigate = useNavigate();
@@ -106,28 +103,18 @@ const BenchSelect = () => {
         <div>
             <div className="bench-select">
             {/* 상단 헤더 */}
-<<<<<<< HEAD
-            <TrainHeader title={<Button text={"🚄여행 "} onClick={() => navigate('/TrainHome')}/>}
-                leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
-                rightChild={<Button text={"📦"} onClick={() => navigate('/TrainBasket')}/>} 
-=======
             <TrainHeader 
                 title={<Button text={<div className="train-header-title"><TbTrain size={50} /> <span>여행</span></div>} onClick={() => navigate('/TrainHome')}/>}
                 leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
                 rightChild={<Button text={<BsCart4 size={30} />} onClick={() => navigate('/TrainBasket')}/>} 
->>>>>>> 902477c (initial commit)
             /> 
                 <h2>좌석 선택</h2>
                 {initialOneTicket && (
                     <>
                         <div className="route-info">
-<<<<<<< HEAD
-                        {direction === 'return' ? initialOneTicket.arrival + ' ➡ ' + initialOneTicket.departure : initialOneTicket.departure + ' ➡ ' + initialOneTicket.arrival}
-=======
                         {direction === 'return' ? 
                             <>{initialOneTicket.arrival} <BsArrowRightShort size={24} /> {initialOneTicket.departure}</> : 
                             <>{initialOneTicket.departure} <BsArrowRightShort size={24} /> {initialOneTicket.arrival}</>}
->>>>>>> 902477c (initial commit)
                         </div>
                         <div className="train-info-top">{selTrain ? ` train-no : ${selTrain.trainNo} (${selTrain.trainType})` : ''}</div>
                         <div className="train-info-top">{selTrain ? ` 성인 : ${initialOneTicket.adults}명  아동 : ${initialOneTicket.children}명` : ''}</div>
@@ -173,13 +160,9 @@ const BenchSelect = () => {
                             })}
 
                             {/* 통로 화살표 */}
-<<<<<<< HEAD
-                            <div className="row-arrow">▲</div>
-=======
                             <div className="row-arrow">
                                 <BsArrowUpShort size={20} />
                             </div>
->>>>>>> 902477c (initial commit)
 
                             {/* 오른쪽 2좌석 */}
                             {["C", "D"].map(letter => {

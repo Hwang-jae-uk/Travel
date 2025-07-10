@@ -172,10 +172,6 @@ const RoomModal = ({ onClose, onSave, initialData }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-<<<<<<< HEAD
-        <h2>{initialData ? '객실 수정' : '객실 추가'}</h2>
-=======
->>>>>>> 902477c (initial commit)
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label>객실명</label>
@@ -265,11 +261,7 @@ const RoomModal = ({ onClose, onSave, initialData }) => {
                 style={{ cursor: 'move' }}
               >
                 <img 
-<<<<<<< HEAD
-                  src={`http://10.100.105.22:8080/api/images${encodeURI(imageUrl)}`} 
-=======
                   src={(imageUrl)} 
->>>>>>> 902477c (initial commit)
                   alt={`existing-img-${idx}`} 
                   className="room-image" 
                 />

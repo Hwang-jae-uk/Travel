@@ -149,11 +149,6 @@
 }
 
 .recent-item {
-<<<<<<< HEAD
-  display: flex;
-  align-items: center;
-=======
->>>>>>> 902477c (initial commit)
   padding: 12px;
   border: 1px solid #eee;
   border-radius: 8px;
@@ -214,12 +209,6 @@
 
 .station-list-item:hover {
   background: #f8f8f8;
-<<<<<<< HEAD
-} 
-
-.location-box {
-  cursor: pointer;  
-=======
 }
 
 /* 기차 아이콘 위치 조정 */
@@ -231,5 +220,4 @@
 
 .location-box {
   cursor: pointer;
->>>>>>> 902477c (initial commit)
 }

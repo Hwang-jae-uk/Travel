@@ -29,10 +29,17 @@ const Header = () => {
       }
       checkAuthStatus();
     };
+
+    const handleNicknameUpdate = () => {
+      checkAuthStatus();
+    };
     
     window.addEventListener('login-success', handleLoginSuccess);
+    window.addEventListener('nickname-updated', handleNicknameUpdate);
+    
     return () => {
       window.removeEventListener('login-success', handleLoginSuccess);
+      window.removeEventListener('nickname-updated', handleNicknameUpdate);
     }
   }, []);
 
@@ -125,4 +132,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

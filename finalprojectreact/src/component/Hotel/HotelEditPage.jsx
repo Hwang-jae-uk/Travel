@@ -373,11 +373,7 @@ const HotelEditPage = ({ isAdmin = false }) => {
               style={{ cursor: 'move' }}
             >
               <img 
-<<<<<<< HEAD
-                src={`http://10.100.105.22:8080/api/images${encodeURI(image.imageUrl)}`} 
-=======
                 src={`${(image.imageUrl)}`} 
->>>>>>> 902477c (initial commit)
                 alt={`existing-img-${idx}`} 
                 className="room-image" 
               />
@@ -433,11 +429,7 @@ const HotelEditPage = ({ isAdmin = false }) => {
                 {/* 룸 이미지 표시 (기존 이미지 우선) */}
                 {room.existingImages && room.existingImages.length > 0 ? (
                   <img 
-<<<<<<< HEAD
-                    src={`http://10.100.105.22:8080/api/images${encodeURI(room.existingImages[0])}`} 
-=======
                     src={(room.existingImages[0])} 
->>>>>>> 902477c (initial commit)
                     alt={`room-${idx}`} 
                     className="room-image" 
                   />
@@ -469,11 +461,7 @@ const HotelEditPage = ({ isAdmin = false }) => {
                 &times;
               </button>
               <button
-<<<<<<< HEAD
-                className="edit-btn"
-=======
                 className="hotel-edit-btn"
->>>>>>> 902477c (initial commit)
                 onClick={() => handleEditRoom(idx)}
               >
                 &#9998;

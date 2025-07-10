@@ -1,27 +1,17 @@
 import TrainHeader from "./TrainHeader";
 import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import { useContext } from "react";
-import "./SelectTicketOne.css"; // 기존 스타일 재사용
-import { BookingContext } from "../contexts/BookingContext";
-import axios from "axios";
-=======
 import { useContext, useState } from "react";
 import "./SelectTicketOne.css"; // 기존 스타일 재사용
 import { BookingContext } from "../contexts/BookingContext";
 import axios from "axios";
 import { TbTrain } from "react-icons/tb";
 import { BsCart4, BsArrowRightShort, BsChevronRight } from "react-icons/bs";
->>>>>>> 902477c (initial commit)
 
 const SelectTicketRound = () => {
     const navigate = useNavigate();
     const { booking, departSelection, returnSelection, basketItems, setBasketItems } = useContext(BookingContext);
-<<<<<<< HEAD
-=======
     const [showSellerInfo, setShowSellerInfo] = useState(false);
->>>>>>> 902477c (initial commit)
 
     if (!booking || !departSelection || !returnSelection) {
         return <div>선택 정보가 없습니다.</div>;
@@ -29,11 +19,7 @@ const SelectTicketRound = () => {
 
     const { adults, children } = booking;
     const passengerText = `성인 ${adults}${children ? ` · 아동 ${children}` : ""}`;
-<<<<<<< HEAD
-
-=======
      
->>>>>>> 902477c (initial commit)
     const formatTime = (ts) => {
         const str = ts.toString();
         return `${str.slice(8, 10)}:${str.slice(10, 12)}`;
@@ -46,8 +32,6 @@ const SelectTicketRound = () => {
 
     const fareTotal = calcFare(departSelection) + calcFare(returnSelection);
 
-<<<<<<< HEAD
-=======
     const sellerInfo = [
         { label: "대표자명", value: "김동우" },
         { label: "상호명", value: "Pepperoni Brothers" },
@@ -58,7 +42,6 @@ const SelectTicketRound = () => {
     ];
 
 
->>>>>>> 902477c (initial commit)
     const handleConfirm = async () => {
         const passengers = adults + children;
         const goItem = {
@@ -137,20 +120,12 @@ const SelectTicketRound = () => {
             <div className="ticket-card">
                 <h2>{title}</h2>
                 <div className="ticket-top">
-<<<<<<< HEAD
-                    <div className="logo">KTX 🚄</div>
-=======
                     <div className="logo">KTX <TbTrain size={20} /></div>
->>>>>>> 902477c (initial commit)
                     <div className="time-block">
                         <div className="time">{formatTime(selection.train.departureTime)}</div>
                         <div className="station">{depStation}</div>
                     </div>
-<<<<<<< HEAD
-                    <div className="arrow">→</div>
-=======
                     <div className="arrow"><BsArrowRightShort size={24} /></div>
->>>>>>> 902477c (initial commit)
                     <div className="time-block">
                         <div className="time">{formatTime(selection.train.arrivalTime)}</div>
                         <div className="station">{arrStation}</div>
@@ -163,29 +138,14 @@ const SelectTicketRound = () => {
                     <div className="info-row"><span className="label">기차번호</span>{selection.train.trainType}-{selection.train.trainNo}</div>
                     <div className="info-row"><span className="label">좌석</span>{selection.seats.join(', ')}</div>
                 </div>
-<<<<<<< HEAD
-                <div className="price">{calcFare(selection).toLocaleString()}원</div>
-            </div>
-=======
                 <div className="price">{calcFare(selection).toLocaleString()}원</div>  
             </div> 
->>>>>>> 902477c (initial commit)
         );
     };
 
     return (
         <div className="select-ticket-one">
             {/* 상단 헤더 */}
-<<<<<<< HEAD
-            <TrainHeader title={<Button text={"🚄여행 "} onClick={() => navigate('/TrainHome')}/>}
-                leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
-                rightChild={<Button text={"📦"} onClick={() => navigate('/TrainBasket')}/>} 
-            />
-
-            <TicketCard title="가는 날" selection={departSelection} />
-            <TicketCard title="오는 날" selection={returnSelection} />
-
-=======
             <TrainHeader 
                 title={<Button text={<div className="train-header-title"><TbTrain size={50} /> <span>여행</span></div>} onClick={() => navigate('/TrainHome')}/>}
                 leftChild={<Button text={"◀"} onClick={() => navigate(-1)} />} 
@@ -210,7 +170,6 @@ const SelectTicketRound = () => {
             <TicketCard title="가는 날" selection={departSelection} />
             <TicketCard title="오는 날" selection={returnSelection} />
  
->>>>>>> 902477c (initial commit)
             <div className="bottom-bar">
                 <div className="summary-text">왕복 ({passengerText})</div>
                 <div className="summary-price">{fareTotal.toLocaleString()}원</div>

@@ -384,11 +384,7 @@ const CafeEditPage = ({ isAdmin = false }) => {
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop(idx, 'existing')}
             >
-<<<<<<< HEAD
-              <img src={`http://10.100.105.22:8080/api/images${image.imageUrl}`} alt={`카페 이미지 ${idx + 1}`} />
-=======
               <img src={`${image.imageUrl}`} alt={`카페 이미지 ${idx + 1}`} />
->>>>>>> 902477c (initial commit)
               <button
                 className="remove-image"
                 onClick={() => handleRemoveExistingImage(idx)}
