@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* 애니메이션 정의 */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveClouds {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInFromBlur {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 사용하지 않는 애니메이션들 제거 */
+
+/* 페이지 전체 래퍼 */
+.main-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 메인 컨테이너 */
+.main-container {
+  display: flex;
+  width: 72vw;
+  height: 40vw;
+  min-height: 400px;
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+}
+
+/* 히어로 이미지 */
+.hero-image {
+  width: 50%;
+  height: 100%;
+  background-image: url('/public/fly.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+ 
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@media (max-width: 991px) {
+  .main-container {
+    width: 98%;
+    height: auto;
+  }
+  .hero-image, .cards-container {
+    width: 100%;
+    height: 40vh;
+  }
+  .cards-grid {
+    height: auto;
+  }
+  .card-wrapper {
+    width: 50%;
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-container {
+    width: 100%;
+    height: auto;
+  }
+  .hero-image, .cards-container {
+    width: 100%;
+    height: 30vh;
+  }
+  .card-wrapper {
+    width: 100%;
+  }
+}
+
+/* 카드 컨테이너 */
+.cards-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0;
+}
+
+/* 카드 그리드 */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 0;
+  overflow: visible;
+}
+
+/* 카드 래퍼 */
+.card-wrapper {
+  width: 33.3333%;
+  height: 50%;
+  display: flex;
+  align-items: stretch;
+  overflow: visible;
+}
+
+/* 그라디언트 카드 */
+.gradient-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  /* overflow: hidden; */
+  overflow: visible;
+  border-radius: 15px;
+}
+
+/* 자연스러운 호버 효과 */
+.gradient-card:hover {
+  transform: translateY(-12px) scale(1.15);
+  z-index: 999;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 991px) {
+  .gradient-card {
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gradient-card {
+    height: 150px;
+  }
+}
+
+/* 카드별 배경 색상 */
+.gradient-card.card-1 {
+  background: linear-gradient(135deg, #292b97 0%, #82d4fa 100%);
+}
+
+.gradient-card.card-2 {
+  background: linear-gradient(135deg,  #000000 0%, #ffffff 100%);
+}
+
+.gradient-card.card-3 {
+  background: linear-gradient(135deg, #7779dd 0%, #ffffff 100%);
+}
+
+.gradient-card.card-4 {
+  background: linear-gradient(135deg,  #422704 0%, #ffd17d 100%);
+}
+
+.gradient-card.card-5 {
+  background: linear-gradient(135deg, #610808 0%, #f89e9e 100%);
+}
+
+.gradient-card.card-6 {
+  background: linear-gradient(135deg, #000000 0%, #a0a0a0 100%);
+} 
+
+/* 애니메이션 딜레이 */
+.gradient-card.delay-1 { animation-delay: 0.4s; }
+.gradient-card.delay-2 { animation-delay: 0.5s; }
+.gradient-card.delay-3 { animation-delay: 0.6s; }
+.gradient-card.delay-4 { animation-delay: 0.7s; }
+.gradient-card.delay-5 { animation-delay: 0.8s; }
+.gradient-card.delay-6 { animation-delay: 0.9s; }
+
+/* 기차 이미지 */
+.train-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translate(-20px, -20px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.gradient-card:hover .train-main-image {
+  opacity: 0.9;
+  transform: translate(0, 0);
+}
+
+/* 호텔 이미지 */
+.hotel-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translateY(-30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.gradient-card:hover .hotel-main-image {
+  opacity: 0.9;
+  transform: translate(0, 0);
+}
+
+/* 하늘 이미지 */
+.sky-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translate(20px, -20px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.gradient-card:hover .sky-main-image {
+  opacity: 0.9;
+  transform: translate(0, 0);
+}
+
+.cafe-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translate(-20px, 20px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.gradient-card:hover .cafe-main-image {
+  opacity: 0.9;
+  transform: translate(0, 0);
+}
+
+.restaurant-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.gradient-card:hover .restaurant-main-image {
+  opacity: 0.9;
+  transform: translate(0, 0);
+}
+
+/* 갤러리 카드(6번) 이미지 */
+.gallery-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0 !important;
+  visibility: hidden;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.gradient-card:hover .gallery-main-image {
+  opacity: 0.9 !important;
+  visibility: visible;
+  transform: translate(0, 0);
+}
+
+/* 카드 아이콘 */
+.card-icon {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 4;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gradient-card:hover .card-icon {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.8);
+}
+
+/* 카드 제목 */
+.card-title {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  font-family: "Jua", sans-serif;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+} 
+
+.gradient-card:hover .card-title {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.main-page-wrapper > .Footer, .main-page-wrapper > footer {
+  margin-top: 32px;
+}
+
+.card-pictogram {
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gradient-card:hover .card-pictogram {
+  opacity: 0;
+  transform: scale(0.8);
+}  

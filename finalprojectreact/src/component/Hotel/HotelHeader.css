@@ -1,0 +1,22 @@
+.HotelHeader{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    
+}
+.HotelHeader>div{
+    display: flex;
+}
+.HotelHeader button{
+    font-family: "Nanum Pen Script";
+}
+
+.HotelHeader .Hotel_header_left{
+    width: 50%;
+    justify-content: start;
+}
+.HotelHeader .Hotel_header_right{
+    width: 50%;
+    justify-content: end;
+}

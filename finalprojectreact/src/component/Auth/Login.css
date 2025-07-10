@@ -1,0 +1,114 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.login-form {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-form h2 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.login-description {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.oauth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.oauth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 100%;
+}
+
+.oauth-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn {
+  background-color: white;
+  color: #4285f4;
+  border: 2px solid #dadce0;
+}
+
+.google-btn:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+}
+
+.naver-btn {
+  background-color: #03c75a;
+  color: white;
+}
+
+.naver-btn:hover {
+  background-color: #02b850;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 199, 90, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+  
+  .login-form {
+    padding: 30px 20px;
+  }
+  
+  .oauth-btn {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .oauth-btn img {
+    width: 18px;
+    height: 18px;
+  }
+} 

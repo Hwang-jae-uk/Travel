@@ -1,0 +1,39 @@
+.train-home {
+  background-image: url('../../public/train.gif');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative; /* 오버레이용 */   
+}
+
+/* 배경 위 가독성을 높이기 위한 흰색 반투명 오버레이 */
+.train-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.4); /* 투명도 조절: 0.0 ~ 1.0 */
+  pointer-events: none; /* 클릭 이벤트 통과 */
+  z-index: 0;
+<<<<<<< HEAD
+=======
+  font-size: 5rem;
+  color: #333;
+>>>>>>> 902477c (initial commit)
+}
+
+/* 실제 콘텐츠가 오버레이 위에 오도록 */
+.train-home > * {
+  position: relative;
+  z-index: 1;
+<<<<<<< HEAD
+=======
+}
+.TrainHome-icon {
+  font-size: 3rem;
+  color: #333;
+>>>>>>> 902477c (initial commit)
+}

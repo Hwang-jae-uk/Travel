@@ -1,0 +1,196 @@
+.select-ticket-one {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ticket-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.ticket-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #0047AB;
+  margin-bottom: 4px;
+<<<<<<< HEAD
+=======
+  display: flex;
+  align-items: center;
+  gap: 4px;
+>>>>>>> 902477c (initial commit)
+}
+
+.time-block {
+  text-align: center;
+}
+.time-block .time {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.time-block .station {
+  font-size: 0.9rem;
+  color: #555;
+}
+.arrow {
+  font-size: 1.2rem;
+  color: #666;
+<<<<<<< HEAD
+=======
+  display: flex;
+  align-items: center;
+  justify-content: center;
+>>>>>>> 902477c (initial commit)
+}
+.fare-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.divider {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+.info-row {
+  display: flex;
+  gap: 6px;
+  color: #333;
+}
+.label {
+  color: #888;
+}
+.price {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 12px;
+}
+.seller-info-row {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+}
+.seller-arrow {
+<<<<<<< HEAD
+  font-size: 1.1rem;
+  color: #666;
+=======
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.seller-arrow.open svg {
+  transform: rotate(90deg);
+>>>>>>> 902477c (initial commit)
+}
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+}
+.summary-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+.summary-price {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.cart-btn {
+  background: #2d5bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.seller-detail {
+  border:1px solid #eee;
+  border-top:none;
+  width:100%;
+  display:table;
+  border-collapse:collapse;
+  margin-bottom:60px; /* bottom bar height buffer */
+}
+.seller-row {
+  display:table-row;
+  border-top:1px solid #eee;
+}
+.seller-label {
+  display:table-cell;
+  width:160px;
+  background:#f6f6f6;
+  padding:10px 12px;
+  font-weight:500;
+  color:#333;
+}
+.seller-value {
+  display:table-cell;
+  padding:10px 12px;
+  color:#333;
+  word-break: break-all;
+  white-space: normal;
+}
+<<<<<<< HEAD
+.seller-arrow {
+  transition:transform .2s ease;
+}
+.seller-arrow.open {
+  transform:rotate(90deg);
+=======
+.train-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-header-title svg {
+  vertical-align: middle;
+  margin-bottom: 2px;
+>>>>>>> 902477c (initial commit)
+} 

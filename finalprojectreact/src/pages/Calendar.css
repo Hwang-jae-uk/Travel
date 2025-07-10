@@ -1,0 +1,247 @@
+.calendar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000; 
+  padding-top: 10vh; 
+}
+
+.calendar-content {
+  background: white;
+  padding: 20px 20px 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.close-button,
+.calender-reset-button {
+  padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #0047AB, #84b4f7);
+    border: none;
+    border-radius: 8px;
+    color: #333;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.close-button:hover, .calender-reset-button:hover {
+  color: #e0e0e0;
+}
+
+.calendar-subheader {
+  text-align: center;
+  padding: 10px;
+  color: #666;
+  font-size: 0.9em;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.month-section {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.month-section h3 {
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.weekday {
+  padding: 5px;
+}
+
+.sunday {
+  color: #ff4444;
+}
+
+.saturday {
+  color: #4444ff;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.day:hover:not(.disabled):not(.empty):not(.past-date):not(.no-trains) {
+  background-color: #f0f0f0;
+}
+
+.day.disabled,
+.day.past-date,
+.day.no-trains,
+.day.isOtherDateSelected {
+  color: #ccc;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+.day.past-date .train-icon,
+.day.no-trains .train-icon,
+.day.isOtherDateSelected .train-icon {
+  opacity: 0.3;
+}
+
+.day.selected:not(.disabled):not(.past-date):not(.no-trains) {
+  color: white;
+  font-weight: bold;
+}
+
+.day.depart-date:not(.disabled):not(.past-date):not(.no-trains) {
+  background-color: #2196F3;  /* 파란색 */
+}
+
+.day.return-date:not(.disabled):not(.past-date):not(.no-trains) {
+  background-color: #4CAF50;  /* 초록색 */
+}
+
+.day.has-trains:not(.disabled):not(.selected):not(.past-date):not(.no-trains)::after {
+  content: "🚄";
+  position: absolute;
+  top: 2px;
+  font-size: 0.8em;
+}
+
+.day.selected.has-trains:not(.disabled):not(.past-date):not(.no-trains)::after {
+  color: white;
+}
+
+.day.disabled.sunday,
+.day.disabled.saturday,
+.day.past-date.sunday,
+.day.past-date.saturday,
+.day.no-trains.sunday,
+.day.no-trains.saturday {
+  color: #ffcccc;
+}
+
+.train-indicator {
+  position: absolute;
+  bottom: 2px;
+  font-size: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+}
+
+.confirm-button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  background: #ccc;
+  color: white;
+  cursor: not-allowed;
+}
+
+.confirm-button.active {
+  background: #007bff;
+  cursor: pointer;
+}
+
+.confirm-button.active:hover {
+  background: #0056b3;
+}
+
+/* 로딩 상태일 때 스타일 */
+.calendar-content.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.calendar-day.selected-date {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.calendar-day.selected-date:hover {
+  background-color: #0056b3;
+}
+
+.calendar-day.selected-date.has-train::after {
+  color: white;
+}
+
+.calendar-day.selected-date.depart-date:hover,
+.calendar-day.selected-date.return-date:hover {
+  opacity: 0.9;
+}
+
+.calendar-day.selected-date.depart-date.has-train::after,
+.calendar-day.selected-date.return-date.has-train::after {
+  color: white;
+}
+
+/* 모바일에서는 기존 90% 폭, 800px 상한 유지 */
+@media (max-width: 768px) {
+  .calendar-content {
+    padding: 12px;
+  }
+<<<<<<< HEAD
+=======
+}
+
+.calendar-train-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.calendar-train-icon svg {
+  vertical-align: middle;
+  margin-bottom: 1px;
+>>>>>>> 902477c (initial commit)
+} 

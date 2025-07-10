@@ -1,0 +1,29 @@
+.Button{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+<<<<<<< HEAD
+    font-size: 18px;
+=======
+    font-size: 2rem;
+>>>>>>> 902477c (initial commit)
+    white-space: nowrap;
+    font-family: "Nanum Pen Script";
+}
+.Button_default{
+    background-color: #ececec;
+    color: black;
+}
+.Button_positive{
+    background-color: #64c964;
+    color: white;
+}
+.Button_game{
+    background-color: #6664c9;
+    color: white;
+}
+.Button_negative{
+    background-color: #fd565f;
+    color: white;
+}

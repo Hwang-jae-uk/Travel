@@ -1,0 +1,26 @@
+.TranHeader{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e2e2;
+}
+.TranHeader>div{
+    display: flex;
+}
+.TranHeader button{
+    font-family: "Nanum Pen Script";
+}
+.TranHeader .Tranheader_title{
+    width: 50%;
+    font-size: 25px;
+    justify-content: center;
+}
+.TranHeader .Tranheader_left{
+    width: 25%;
+    justify-content: start;
+}
+.TranHeader .Tranheader_right{
+    width: 25%;
+    justify-content: end;
+}

@@ -1,0 +1,155 @@
+.bench-select {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    min-height: 100vh;
+}
+
+.legend {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 0.8rem;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-box {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.legend-box.selected { background-color: #999; }
+.legend-box.picked { background-color: #0047AB; }
+.legend-box.available { background-color: #fff; border: 1px solid #ccc; }
+
+.seat-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.column-labels {
+    display: grid;
+    grid-template-columns: repeat(2, 64px) 30px repeat(2, 64px);
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.col-gap { width: 20px; }
+
+.seat-row {
+    display: grid;
+    grid-template-columns: repeat(2, 64px) 30px repeat(2, 64px);
+    gap: 10px;
+    align-items: center;
+}
+
+.row-arrow {
+<<<<<<< HEAD
+    font-size: 1rem;
+    color: #777;
+    text-align: center;
+=======
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    margin: 0 10px;
+>>>>>>> 902477c (initial commit)
+}
+
+.seat-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    position: relative;
+}
+
+.seat-box.disabled {
+    background-color: #eee;
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.seat-box.available:hover {
+    background-color: #f0f0f0;
+}
+
+.seat-box.picked {
+    background-color: #0047AB;
+    color: #fff;
+    border-color: #0047AB;
+}
+
+.seat-text {
+    pointer-events: none;
+}
+
+.selection-info {
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+.confirm-btn {
+    width: 90%;
+    max-width: 500px;
+    padding: 14px;
+    background-color: #0047AB;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.confirm-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.route-info {
+<<<<<<< HEAD
+    margin-bottom: 4px;
+    font-weight: bold;
+=======
+    font-size: 1.2rem;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+>>>>>>> 902477c (initial commit)
+}
+
+.train-info-top {
+    margin-bottom: 10px;
+    color: #555;
+<<<<<<< HEAD
+=======
+}
+
+.train-header-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.train-header-title svg {
+    vertical-align: middle;
+    margin-bottom: 2px;
+>>>>>>> 902477c (initial commit)
+}

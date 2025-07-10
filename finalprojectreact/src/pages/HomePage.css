@@ -1,0 +1,295 @@
+/* HomePage.css */
+
+.container {
+  padding: 20px;
+  background-color: #fff;
+  max-width: 768px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tab-container {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #eee;
+  background: none;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #000;
+  font-weight: bold;
+  border: 2px solid #0047AB;
+}
+
+.stations-container {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  position: relative;
+  gap: 12px;
+}
+
+.location-container {
+  flex: 1;
+  background-color: #f8f8f8;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.location-box {
+  cursor: pointer;  
+}
+
+.location-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.location {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.swap-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+<<<<<<< HEAD
+  font-size: 20px;
+  color: #666;
+=======
+  font-size: 2rem;
+  color: #666;
+  margin-top: 23px;
+>>>>>>> 902477c (initial commit)
+}
+
+.date-section {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.date-section:hover {
+  background-color: #f8f8f8;
+}
+
+.date-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.date-value {
+  font-size: 16px;
+  color: #333;
+}
+
+/* 왕복 선택 시 스타일 */
+.date-section + .date-section {
+  border-top: none;
+}
+
+.date-section:first-of-type {
+  border-bottom: 1px solid #eee;
+}
+
+.passenger-section {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.passenger-section:hover {
+  background-color: #f8f8f8;
+}
+
+.passenger-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.passenger-value {
+  font-size: 16px;
+  color: #000;
+}
+
+.search-button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #0047AB;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+select,
+input[type="date"] {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.passenger-control {
+  display: flex;
+  align-items: center;
+}
+
+.passenger-control button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3478f6;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.passenger-control button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.passenger-control span {
+  margin: 0 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.submit-button {
+  background-color: #3478f6;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.submit-button:hover {
+  background-color: #2a5dc7;
+}
+
+.result-box {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.result-box h4 {
+  margin-bottom: 12px;
+}
+
+.result-box p {
+  margin: 6px 0;
+}
+
+.calendar-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.date-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.time-filter-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.time-filter-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.time-filter-select {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}

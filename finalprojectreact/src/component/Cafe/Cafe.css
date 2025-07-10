@@ -1,0 +1,2033 @@
+/* Cafe.css - Cafe 관련 컴포넌트들의 스타일 */
+
+/* 카페 목록 컨테이너 */
+.cafe-list-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+}
+
+/* 검색 필터 섹션 */
+<<<<<<< HEAD
+.search-filters {
+=======
+.cafe-search-filters {
+>>>>>>> 902477c (initial commit)
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 3rem;
+}
+
+<<<<<<< HEAD
+.search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2rem;
+}
+
+.search-field {
+    
+=======
+.cafe-search-field {
+>>>>>>> 902477c (initial commit)
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 180px;
+    max-width: 240px;
+}
+
+<<<<<<< HEAD
+.search-field label {
+=======
+.cafe-search-field label {
+>>>>>>> 902477c (initial commit)
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+<<<<<<< HEAD
+}
+
+.search-input, .search-select {
+=======
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cafe-search-field label svg {
+    margin-top: -2px;
+}
+
+.cafe-search-field label input[type="checkbox"] {
+    margin: 0;
+}
+
+.cafe-search-field input,
+.cafe-search-field select {
+    color: #4a5568;
+}
+
+.cafe-search-field input::placeholder {
+    color: #a0aec0;
+}
+
+.cafe-search-input, .cafe-search-select {
+>>>>>>> 902477c (initial commit)
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+<<<<<<< HEAD
+.search-input:focus, .search-select:focus {
+=======
+.cafe-search-input:focus, .cafe-search-select:focus {
+>>>>>>> 902477c (initial commit)
+    outline: none;
+    border-color: #8B4513;
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+    transform: translateY(-1px);
+}
+
+<<<<<<< HEAD
+.search-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.reset-button {
+=======
+.cafe-search-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.cafe-reset-button {
+>>>>>>> 902477c (initial commit)
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #0047AB, #84b4f7);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    width: 100%;
+    min-width: 140px;
+<<<<<<< HEAD
+}
+
+.reset-button:hover {
+=======
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+}
+
+.cafe-reset-button:hover {
+>>>>>>> 902477c (initial commit)
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+/* 검색 결과 정보 */
+.search-results-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.results-count {
+    font-weight: bold;
+    color: #4a5568;
+}
+
+.active-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-tag {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* 카페 그리드 */
+.cafe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* 카페 카드 */
+.cafe-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.cafe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.cafe-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.cafe-card-content {
+    padding: 15px;
+}
+
+.cafe-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.cafe-card-address {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cafe-card-features {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.feature-badge {
+    background-color: #8B4513;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.cafe-card-hours {
+    color: #666;
+    font-size: 13px;
+}
+
+/* 카페 상세 페이지 */
+.cafe-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cafe-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cafe-detail-section {
+    width: 100%;
+}
+
+.cafe-reviews-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 2rem;
+    height: auto;
+    min-height: 200px;
+<<<<<<< HEAD
+=======
+    color: #0047AB;
+}
+
+.cafe-reviews-section h2 {
+    color: #0047AB;
+    font-size: 24px;
+    margin-bottom: 20px;
+>>>>>>> 902477c (initial commit)
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    overflow: visible;
+    padding-right: 2cm;
+}
+
+.review-item {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.review-content {
+    padding-right: 2rem;
+    word-break: break-all;
+<<<<<<< HEAD
+=======
+    color: #0047AB;
+>>>>>>> 902477c (initial commit)
+}
+
+/* 카페 이미지 섹션 */
+.cafe-images-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 30px;
+    height: 400px;
+}
+
+.main-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.main-image-container:hover .main-image {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.thumbnail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.thumbnail-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.thumbnail-item:hover .thumbnail {
+    transform: scale(1.1);
+}
+
+.more-images-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 카페 정보 섹션 */
+.cafe-info-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.cafe-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #8B4513;
+    margin-bottom: 20px;
+}
+
+.cafe-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.cafe-details p {
+    margin: 8px 0;
+    color: #666;
+    font-size: 16px;
+}
+
+.cafe-details strong {
+    color: #333;
+}
+
+.cafe-features {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.feature-icon.active {
+    background-color: #8B4513;
+    color: white;
+}
+
+.cafe-description {
+    margin-top: 20px;
+}
+
+.cafe-description h2 {
+    color: #8B4513;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.cafe-description p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* 메뉴 섹션 */
+.menu-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.menu-section h2 {
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.menu-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.menu-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 15px;
+}
+
+.menu-info h3 {
+    color: #8B4513;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.menu-info p {
+    color: #666;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.menu-price {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+/* 이미지 갤러리 모달 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-nav:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav.prev {
+    left: 20px;
+}
+
+.modal-nav.next {
+    right: 20px;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 10px;
+    transition: opacity 0.3s;
+}
+
+.modal-close:hover {
+    opacity: 0.8;
+}
+
+.modal-counter {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* 로딩 및 에러 상태 */
+.loading {
+    text-align: center;
+    padding: 50px;
+    color: #666;
+    font-size: 18px;
+}
+
+.error {
+    text-align: center;
+    padding: 50px;
+    color: #e74c3c;
+    font-size: 18px;
+}
+
+.no-cafes-message, .no-results-message {
+    text-align: center;
+    padding: 50px;
+    color: #666;
+}
+
+.no-cafes-message h2, .no-results-message h3 {
+    color: #8B4513;
+    margin-bottom: 15px;
+}
+
+.reset-search-button {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.reset-search-button:hover {
+    background-color: #6B3410;
+}
+
+.no-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #999;
+    font-size: 14px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .cafe-list-container {
+        padding: 15px;
+    }
+    
+<<<<<<< HEAD
+    .search-row {
+=======
+    .cafe-search-row {
+>>>>>>> 902477c (initial commit)
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+<<<<<<< HEAD
+    .search-field {
+=======
+    .cafe-search-field {
+>>>>>>> 902477c (initial commit)
+        min-width: auto;
+    }
+    
+    .cafe-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cafe-images-section {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .main-image-container {
+        height: 250px;
+    }
+    
+    .thumbnail-container {
+        height: 120px;
+    }
+    
+    .cafe-detail-container {
+        padding: 15px;
+    }
+    
+    .cafe-info-section {
+        padding: 20px;
+    }
+    
+    .cafe-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .image-gallery-modal {
+        width: 95vw;
+        height: 85vh;
+    }
+
+    .modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .modal-nav.prev {
+        left: 10px;
+    }
+
+    .modal-nav.next {
+        right: 10px;
+    }
+}
+
+/* 관리자 페이지 스타일 */
+.cafe-page-admin {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.admin-header h1 {
+    color: #8B4513;
+    margin: 0;
+}
+
+.admin-actions .register-btn {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.admin-actions .register-btn:hover {
+    background-color: #6B3410;
+}
+
+/* 관리자 목록 스타일 */
+.cafe-list-admin {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.search-filter-section {
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #8B4513;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #8B4513;
+}
+
+.search-results-info {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.search-results-info p {
+    margin: 0;
+    color: #666;
+    font-weight: bold;
+}
+
+/* 관리자 카드 그리드 */
+.cafe-grid-admin {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.cafe-card-admin {
+    position: relative;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.cafe-card-admin:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.cafe-image-container {
+    height: 200px;
+    overflow: hidden;
+}
+
+.cafe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cafe-info {
+    padding: 15px;
+}
+
+.cafe-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.cafe-address, .cafe-phone, .cafe-email {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.cafe-features {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.cafe-features .feature {
+    background-color: #f0f0f0;
+    color: #666;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.cafe-features .feature.active {
+    background-color: #8B4513;
+    color: white;
+}
+
+.cafe-hours {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #f8f8f8;
+}
+
+.admin-actions button {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cafe-edit-btn {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.cafe-edit-btn:hover {
+    background-color: #1976D2;
+}
+
+.cafe-remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.cafe-remove-btn:hover {
+    background-color: #d32f2f;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+/* 리뷰 섹션 스타일 */
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: none;
+}
+
+.reviews-header h2 {
+<<<<<<< HEAD
+    color: #8B4513;
+=======
+    color:  #0047AB;
+>>>>>>> 902477c (initial commit)
+    margin: 0;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.average-rating {
+    font-size: 18px;
+    font-weight: bold;
+<<<<<<< HEAD
+    color: #8B4513;
+=======
+    color: #000000;
+>>>>>>> 902477c (initial commit)
+}
+
+.review-count {
+    color: #666;
+    font-size: 14px;
+}
+
+.review-write-section {
+    margin-bottom: 2rem;
+}
+
+.write-review-btn {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.write-review-btn:hover {
+    background-color: #6B3410;
+}
+
+.review-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rating-input {
+    margin-bottom: 15px;
+}
+
+.rating-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.rating-input select {
+    padding: 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.content-input {
+    margin-bottom: 15px;
+}
+
+.content-input textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.content-input textarea:focus {
+    outline: none;
+    border-color: #8B4513;
+}
+
+.image-input {
+    margin-bottom: 20px;
+}
+
+.image-input input[type="file"] {
+    display: none;
+}
+
+.image-upload-btn {
+    display: inline-block;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.image-upload-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.image-preview {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.image-preview-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.image-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.submit-btn {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #6B3410;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cancel-btn:hover {
+    background-color: #bbb;
+}
+
+.login-required {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.login-required a {
+    color: #8B4513;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-required a:hover {
+    text-decoration: underline;
+}
+
+.reviews-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviewer-email {
+    font-weight: bold;
+    color: #333;
+}
+
+.review-rating {
+<<<<<<< HEAD
+    color: #8B4513;
+=======
+    color: #0047AB;
+>>>>>>> 902477c (initial commit)
+    font-size: 16px;
+}
+
+.review-date {
+    color: #666;
+    font-size: 12px;
+}
+
+.delete-review-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-review-btn:hover {
+    background-color: #d32f2f;
+}
+
+.review-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.review-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.review-image:hover {
+    transform: scale(1.05);
+}
+
+.no-reviews {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+@media (max-width: 1024px) {
+<<<<<<< HEAD
+    .search-row {
+        gap: 1rem;
+    }
+    
+    .search-field {
+=======
+    .cafe-search-row {
+        gap: 1rem;
+    }
+    
+    .cafe-search-field {
+>>>>>>> 902477c (initial commit)
+        min-width: 150px;
+        max-width: 180px;
+    }
+    
+<<<<<<< HEAD
+    .search-actions {
+=======
+    .cafe-search-actions {
+>>>>>>> 902477c (initial commit)
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+    
+<<<<<<< HEAD
+    .reset-button {
+        min-width: 120px;
+    }
+    
+    .search-filters {
+=======
+    .cafe-reset-button {
+        min-width: 120px;
+    }
+    
+    .cafe-search-filters {
+>>>>>>> 902477c (initial commit)
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cafe-list-container {
+        padding: 15px;
+    }
+
+<<<<<<< HEAD
+    .search-filters {
+=======
+    .cafe-search-filters {
+>>>>>>> 902477c (initial commit)
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+<<<<<<< HEAD
+    .search-row {
+=======
+    .cafe-search-row {
+>>>>>>> 902477c (initial commit)
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+<<<<<<< HEAD
+    .search-field {
+=======
+    .cafe-search-field {
+>>>>>>> 902477c (initial commit)
+        min-width: 100%;
+        max-width: 100%;
+    }
+    
+<<<<<<< HEAD
+    .search-actions {
+=======
+    .cafe-search-actions {
+>>>>>>> 902477c (initial commit)
+        flex-basis: auto;
+        justify-content: center;
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+
+    .cafe-grid, .cafe-grid-admin {
+        grid-template-columns: 1fr;
+    }
+
+    .cafe-images-section {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .main-image-container {
+        height: 250px;
+    }
+
+    .thumbnail-container {
+        display: flex;
+        gap: 5px;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    .cafe-detail-container {
+        padding: 15px;
+    }
+
+    .cafe-info-section {
+        padding: 20px;
+    }
+
+    .cafe-details {
+        font-size: 14px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-gallery-modal {
+        width: 95%;
+        height: 90%;
+        padding: 15px;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+    }
+
+    .admin-actions {
+        flex-direction: column;
+    }
+
+    .reviews-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .reviewer-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cafe-name {
+        font-size: 24px;
+    }
+    
+    .menu-section h2 {
+        font-size: 20px;
+    }
+    
+    .modal-thumbnails {
+        padding: 10px;
+    }
+    
+    .modal-thumbnail {
+        min-width: 60px;
+        height: 45px;
+    }
+
+    .cafe-page-admin, .cafe-list-admin {
+        padding: 15px;
+    }
+
+    .image-preview {
+        justify-content: center;
+    }
+
+    .review-images {
+        justify-content: center;
+    }
+}
+
+/* 지도 버튼 스타일 */
+.map-button {
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-left: 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.map-button:hover {
+    background: linear-gradient(135deg, #A0522D 0%, #FF7F50 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.map-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 관리자 버튼 스타일 */
+
+.cafe-card-admin:hover .cafe-edit-btn,
+.cafe-card-admin:hover .cafe-remove-btn {
+    opacity: 1;
+}
+
+.cafe-edit-btn {
+    font-size: 18px;
+}
+
+.cafe-remove-btn {
+    font-size: 24px;
+} 
+
+.add-cafe-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+/* CafeRegisterPage 스타일 */
+.register-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.register-wrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="time"] {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.time-row input[type="time"] {
+  flex: 1;
+}
+
+.facilities-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.facilities-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-preview-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #ddd;
+}
+
+.image-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(244, 67, 54, 0.9);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.first-image-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: rgba(33, 150, 243, 0.9);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: #2196F3;
+  color: white;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.btn-primary:hover {
+  background: #1976D2;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+/* Cafe Edit Page Styles */
+:root {
+  --primary-color: #0047AB;
+  --secondary-color: #ff6b00;
+  --light-bg: #f5f7fa;
+  --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-radius: 16px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.cafe-edit-container {
+  
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cafe-form {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin: 3em 0em 2em 0em;
+  color: var(--primary-color);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  flex: 0 0 130px;
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+}
+
+.input-group textarea {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.image-section {
+  margin-top: 2rem;
+}
+
+.add-image-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+
+.add-image-button:hover {
+  background: #003d91;
+}
+
+.image-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.image-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.image-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: var(--secondary-color);
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #e65f00;
+}
+
+.btn-secondary {
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: #f1f1f1;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+.image-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  cursor: move;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+  transform: translateY(-4px);
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-image {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #e53e3e;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-image:hover {
+  background: #e53e3e;
+  color: white;
+}
+
+.main-image-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(102, 126, 234, 0.9);
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .cafe-edit-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .cafe-form {
+    padding: 1.5rem;
+  }
+
+  .input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-group label {
+    flex: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .image-preview {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .cafe-form {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .input-group label {
+    font-size: 0.9rem;
+  }
+
+  .image-preview {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+.review-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.review-date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.review-rating {
+<<<<<<< HEAD
+    color: #f1c40f;
+    margin-right: 5px;
+=======
+    color: #0047AB;
+    margin-right: 5px;
+}
+
+.cafe-card-phone,
+.cafe-hours,
+.cafe-features span,
+.cafe-address,
+.no-image {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cafe-features {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.map-view-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    color: #007bff;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.map-view-button:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #0056b3;
+}
+
+.map-view-button:active {
+    transform: scale(0.95);
+>>>>>>> 902477c (initial commit)
+}
