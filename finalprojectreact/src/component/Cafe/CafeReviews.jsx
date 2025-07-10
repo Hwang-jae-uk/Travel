@@ -153,7 +153,7 @@ const CafeReviews = ({ cafeId }) => {
     // 이미지 모달 열기
     const handleImageClick = (images, startIndex) => {
         // 이미지 URL 배열 생성
-        const imageUrls = images.map(url => `http://10.100.105.22:8080/api/images${url}`);
+        const imageUrls = images.map(url => `${url}`);
         setSelectedImages(imageUrls);
         setCurrentImageIndex(startIndex);
         setShowImageModal(true);

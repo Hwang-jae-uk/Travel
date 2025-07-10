@@ -142,7 +142,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
     
     // 편의시설 정보 추가
     Object.entries(restaurantInfo.facilities).forEach(([key, value]) => {
-      formData.append(`facilities.${key}`, value);
+      formData.append(key, value);
     });
 
     // 남아있는 기존 이미지 정보 추가
@@ -363,18 +363,6 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
           />
           <label htmlFor="delivery">배달</label>
         </div>
-
-        <div className="checkbox-group">
-          <input
-            type="checkbox"
-            name="facilities.takeout"
-            checked={restaurantInfo.facilities.takeout}
-            onChange={handleChange}
-            id="takeout"
-          />
-          <label htmlFor="takeout">포장</label>
-        </div>
-
         {/* 이미지 섹션 */}
         <h2 className="section-title">이미지 관리</h2>
         <button className="add-image-button" onClick={handleAddImage}>

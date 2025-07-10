@@ -91,7 +91,7 @@ const RestaurantCardAdmin = ({ restaurant, onDelete }) => {
             </button>
             
             <button 
-                className="remove-btn" 
+                className="restaurant-remove-btn" 
                 onClick={handleDelete}
                 title="레스토랑 삭제"
             >

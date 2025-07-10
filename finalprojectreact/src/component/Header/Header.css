@@ -51,6 +51,7 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  height: 38px; /* 버튼 높이와 동일하게 설정 */
 }
 
 .header .welcome-text {
@@ -67,10 +68,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  height: 38px; /* 버튼 높이와 동일하게 설정 */
+  box-sizing: border-box;
 }
 
 .header .welcome-text span {
   color: white;
+  line-height: 38px; /* 텍스트 수직 중앙 정렬 */
 }
 
 .header .welcome-text:hover {
@@ -91,6 +95,7 @@
   transition: all 0.3s ease;
   min-width: 38px;
   height: 38px;
+  box-sizing: border-box;
 }
 
 .header .login-btn {
@@ -137,6 +142,15 @@
   .header .welcome-text {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
+    height: 34px; /* 모바일에서 버튼 높이 조정 */
+  }
+
+  .header .welcome-text span {
+    line-height: 34px; /* 모바일에서 텍스트 수직 중앙 정렬 */
+  }
+
+  .header .user-info {
+    height: 34px; /* 모바일에서 버튼 높이 조정 */
   }
 
   .header .auth-btn {
@@ -147,4 +161,4 @@
   .header .auth-icon {
     font-size: 1.1rem;
   }
-} 
+}

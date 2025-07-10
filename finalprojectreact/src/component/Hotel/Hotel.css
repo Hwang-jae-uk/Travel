@@ -240,6 +240,22 @@
   content: '⭐';
 }
 
+.hotel-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.hotel-card-rating .stars {
+    color: #ffd700;
+}
+
+.hotel-card-rating .rating-text {
+    color: #666;
+}
+
 /* Loading and Error States */
 .loading {
   display: flex;
@@ -2358,7 +2374,7 @@
   height: 28px;
   border: none;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
+  background: #2196F3;
   color: #fff;
   font-size: 18px;
   line-height: 28px;

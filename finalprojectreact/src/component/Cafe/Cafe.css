@@ -200,6 +200,22 @@
     font-size: 13px;
 }
 
+.cafe-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.cafe-card-rating .stars {
+    color: #ffd700;
+}
+
+.cafe-card-rating .rating-text {
+    color: #666;
+}
+
 /* 카페 상세 페이지 */
 .cafe-detail-container {
     max-width: 1200px;

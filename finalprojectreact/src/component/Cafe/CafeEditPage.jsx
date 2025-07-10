@@ -129,7 +129,7 @@ const CafeEditPage = ({ isAdmin = false }) => {
     
     // 편의시설 정보 추가
     Object.entries(cafeInfo.facilities).forEach(([key, value]) => {
-      formData.append(`facilities.${key}`, value);
+      formData.append(key, value);
     });
 
     // 남아있는 기존 이미지 정보 추가
@@ -337,28 +337,7 @@ const CafeEditPage = ({ isAdmin = false }) => {
           />
           <label htmlFor="parking">주차</label>
         </div>
-
-        <div className="checkbox-group">
-          <input
-            type="checkbox"
-            name="facilities.takeout"
-            checked={cafeInfo.facilities.takeout}
-            onChange={handleChange}
-            id="takeout"
-          />
-          <label htmlFor="takeout">포장</label>
-        </div>
-
-        <div className="checkbox-group">
-          <input
-            type="checkbox"
-            name="facilities.delivery"
-            checked={cafeInfo.facilities.delivery}
-            onChange={handleChange}
-            id="delivery"
-          />
-          <label htmlFor="delivery">배달</label>
-        </div>
+  
 
         {/* 이미지 섹션 */}
         <h2 className="section-title">이미지 관리</h2>

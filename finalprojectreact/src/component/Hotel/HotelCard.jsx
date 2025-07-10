@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Hotel.css';
 import { useNavigate } from 'react-router-dom';
 import { parseAddress } from './addressUtils';
 import { IoLocationSharp } from 'react-icons/io5';
+import axios from 'axios';
 
 const HotelCard = ({ hotel }) => {
   const navigate = useNavigate();
-  const imageURL = hotel.images && hotel.images.length > 0 ?(hotel.images[0].imageUrl): null;
+  const [ratingInfo, setRatingInfo] = useState({ averageRating: 0, reviewCount: 0 });
+  const imageURL = hotel.images && hotel.images.length > 0 ? (hotel.images[0].imageUrl) : null;
+
+  useEffect(() => {
+    fetchRatingInfo();
+  }, [hotel.id]);
+
+  const fetchRatingInfo = async () => {
+    try {
+      const response = await axios.get(`/api/hotel/${hotel.id}/reviews/rating`);
+      const ratingData = response.data || { averageRating: 0, reviewCount: 0 };
+      setRatingInfo(ratingData);
+    } catch (error) {
+      console.error('평점 정보 조회 실패:', error);
+      setRatingInfo({ averageRating: 0, reviewCount: 0 });
+    }
+  };
 
   const handleClick = () => {
     navigate(`/HotelDetail/${hotel.id}`);
@@ -24,6 +41,10 @@ const HotelCard = ({ hotel }) => {
     return lowestPrice;
   };
 
+  const renderStars = (rating) => {
+    return '⭐'.repeat(Math.round(rating));
+  };
+
   const lowestPrice = getLowestPrice();
   const { province, city, fullAddress } = parseAddress(hotel.address);
 
@@ -32,6 +53,17 @@ const HotelCard = ({ hotel }) => {
       {imageURL && <img className="hotel-image" src={imageURL} alt={hotel.name} />}
       <div className="hotel-content">
         <h3 className="hotel-name">{hotel.name}</h3>
+        
+        {/* 별점 정보 표시 */}
+        {ratingInfo.reviewCount > 0 && (
+          <div className="hotel-card-rating">
+            <span className="stars">{renderStars(ratingInfo.averageRating)}</span>
+            <span className="rating-text">
+              {ratingInfo.averageRating.toFixed(1)} ({ratingInfo.reviewCount}개의 리뷰)
+            </span>
+          </div>
+        )}
+
         <div className="hotel-location">
           {province ? (
             <div className="address-parsed">
@@ -73,4 +105,4 @@ HotelCard.propTypes = {
   }).isRequired,
 };
 
-export default HotelCard; 
+export default HotelCard;

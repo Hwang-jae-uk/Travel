@@ -420,9 +420,8 @@ const HotelDetail = () => {
                     </p>
                     <p><strong>전화번호:</strong> {hotel.phone}</p>
                     <p><strong>이메일:</strong> {hotel.email}</p>
-                    {hotel.breakfastIncluded && (
-                        <p><strong>조식:</strong> {hotel.breakfastPrice}원</p>
-                    )}
+                    <p><strong>조식:</strong> {hotel.breakfast ? '있음' : '없음'}  {hotel.breakfastPrice ? `(추가 요금 인당 ${hotel.breakfastPrice}원)` : ''}</p>
+                  
                 </div>
                 <div className="hotel-description">
                     <h2>호텔 소개</h2>

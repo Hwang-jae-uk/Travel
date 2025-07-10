@@ -226,6 +226,22 @@
     font-size: 0.9rem;
 }
 
+.restaurant-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.restaurant-card-rating .stars {
+    color: #ffd700;
+}
+
+.restaurant-card-rating .rating-text {
+    color: #666;
+}
+
 /* 레스토랑 상세 페이지 */
 .restaurant-detail-container {
     max-width: 1200px;
@@ -995,7 +1011,7 @@
     font-weight: bold;
 }
 
-.remove-btn {
+.restaurant-remove-btn {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -1011,6 +1027,31 @@
     align-items: center;
     justify-content: center;
 }
+
+.restaurant-edit-btn {
+ 
+position: absolute;
+  bottom: 8px;
+  right: 8px; /* remove-btn width + margin */
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: #2196F3;
+  color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.restaurant-card:hover .restaurant-edit-btn {
+    opacity: 1;
+}
+
 
 /* 메뉴 섹션 */
 .menu-section {

@@ -181,7 +181,7 @@ const MyPage = () => {
                                 </>
                             ) : (
                                 <>
-                                    <span className="nickname-value">{nickname || '닉네임 없음'}</span>
+                                    <div className="nickname-value">{nickname || '닉네임 없음'}</div>
                                     <button 
                                         onClick={() => {
                                             console.log("수정 버튼 클릭");
@@ -347,4 +347,4 @@ const MyPage = () => {
     );
 };
 
-export default MyPage; 
+export default MyPage;

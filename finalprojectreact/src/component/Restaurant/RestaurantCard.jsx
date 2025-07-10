@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Restaurant.css';
 import { IoLocationSharp, IoTime } from "react-icons/io5";
 import { MdOutlineRestaurant, MdPhone } from "react-icons/md";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { BiSolidFoodMenu } from "react-icons/bi";
+import axios from 'axios';
 
 const RestaurantCard = ({ restaurant }) => {
     const navigate = useNavigate();
+    const [ratingInfo, setRatingInfo] = useState({ averageRating: 0, reviewCount: 0 });
 
+    useEffect(() => {
+        fetchRatingInfo();
+    }, [restaurant.id]);
+
+    const fetchRatingInfo = async () => {
+        try {
+            const response = await axios.get(`/api/restaurant/${restaurant.id}/reviews/rating`);
+            const ratingData = response.data || { averageRating: 0, reviewCount: 0 };
+            setRatingInfo(ratingData);
+        } catch (error) {
+            console.error('평점 정보 조회 실패:', error);
+            setRatingInfo({ averageRating: 0, reviewCount: 0 });
+        }
+    };
+
+    const renderStars = (rating) => {
+        return '⭐'.repeat(Math.round(rating));
+    };
 
     return (
         <div className="restaurant-card" onClick={() => navigate(`/restaurant/${restaurant.id}`)}>
             <div className="restaurant-card-image">
                 {restaurant.images && restaurant.images.length > 0 && restaurant.images[0]?.imagePath ? (
                     <img 
-                        src={(restaurant.images[0].imagePath)} 
+                        src={restaurant.images[0].imagePath} 
                         alt={restaurant.name}
                         className="restaurant-card-img"
                         onError={(e) => {
@@ -31,6 +51,16 @@ const RestaurantCard = ({ restaurant }) => {
             
             <div className="restaurant-card-content">
                 <h3 className="restaurant-card-title">{restaurant.name}</h3>
+                
+                {/* 별점 정보 표시 */}
+                {ratingInfo.reviewCount > 0 && (
+                    <div className="restaurant-card-rating">
+                        <span className="stars">{renderStars(ratingInfo.averageRating)}</span>
+                        <span className="rating-text">
+                            {ratingInfo.averageRating.toFixed(1)} ({ratingInfo.reviewCount}개의 리뷰)
+                        </span>
+                    </div>
+                )}
                 
                 {restaurant.cuisine && (
                     <div className="restaurant-card-cuisine">
@@ -64,4 +94,4 @@ const RestaurantCard = ({ restaurant }) => {
     );
 };
 
-export default RestaurantCard; 
+export default RestaurantCard;

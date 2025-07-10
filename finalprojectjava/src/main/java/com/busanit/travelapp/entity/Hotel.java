@@ -31,10 +31,6 @@ public class Hotel extends BaseEntity{
     @Lob
     private String description;             // 호텔설명
 
-//    private Float ratingAvg;                // 평점
-//    private Integer reviewcount;            // 리뷰수
-
-
     @Builder.Default
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HotelImage> images = new ArrayList<>();
