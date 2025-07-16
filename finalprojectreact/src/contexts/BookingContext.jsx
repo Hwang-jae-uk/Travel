@@ -17,6 +17,31 @@ export const BookingProvider = ({ children }) => {
   const [returnSchedules, setReturnSchedules] = useState(() => load('returnSchedules', []));
   const [departSelection, setDepartSelection] = useState(() => load('departSelection'));
   const [returnSelection, setReturnSelection] = useState(() => load('returnSelection'));
+  const [recentlyDeletedItems, setRecentlyDeletedItems] = useState([]); // 추가
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    const now = Date.now();
+    const filteredItems = [];
+    const deletedItems = [];
+    basketItems.forEach(item => {
+      if (item.paid) {
+        filteredItems.push(item);
+      } else if ((now - item.addedAt) < 600000) { // 10분
+        filteredItems.push(item);
+      } else {
+        deletedItems.push(item);
+      }
+    });
+
+    if (deletedItems.length > 0) {
+      setBasketItems(filteredItems);
+      setRecentlyDeletedItems(deletedItems); // 삭제된 아이템 정보 저장
+    }
+  }, 600000); // 10분마다 검사
+
+  return () => clearInterval(interval);
+}, [basketItems]);
 
   // 각각의 상태가 변경될 때마다 sessionStorage에 저장
   useEffect(() => {
@@ -61,6 +86,8 @@ export const BookingProvider = ({ children }) => {
     setDepartSelection,
     returnSelection,
     setReturnSelection,
+    recentlyDeletedItems,
+    setRecentlyDeletedItems,
   };
 
   return (

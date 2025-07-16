@@ -22,6 +22,4 @@ public interface RestaurantReviewRepository extends JpaRepository<RestaurantRevi
     Long countByRestaurantId(Long restaurantId);
 
 
-    // 사용자 이메일과 리뷰 ID로 리뷰 조회 (삭제 권한 확인용)
-    RestaurantReview findByIdAndUserEmail(Long id, String userEmail);
 } 

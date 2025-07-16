@@ -6,6 +6,7 @@ import { MdOutlineRestaurant, MdPhone } from "react-icons/md";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { BiSolidFoodMenu } from "react-icons/bi";
 import axios from 'axios';
+import { MdLocalParking, MdDeliveryDining } from "react-icons/md";
 
 const RestaurantCard = ({ restaurant }) => {
     const navigate = useNavigate();
@@ -67,6 +68,17 @@ const RestaurantCard = ({ restaurant }) => {
                         <BiSolidFoodMenu size={16} /> {restaurant.cuisine}
                     </div>
                 )}
+                <div className="cafe-features">
+                    <span className={`feature ${restaurant.hasDelivery ? 'active' : ''}`}>
+                        <MdDeliveryDining size={18} /> 배달 {restaurant.hasDelivery ? '가능' : '불가'}
+                    </span>
+                    <span className={`feature ${restaurant.hasParking ? 'active' : ''}`}>
+                        <MdLocalParking size={18} /> 주차 {restaurant.hasParking ? '가능' : '불가'}
+                    </span>
+                    <span className={`feature ${restaurant.hasReservation ? 'active' : ''}`}>
+                        <MdOutlineRestaurant size={18} /> 예약 {restaurant.hasReservation ? '가능' : '불가'}
+                    </span>
+                </div>
                 
                 <div className="restaurant-card-address">
                     <IoLocationSharp size={18} /> {restaurant.address}

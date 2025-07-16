@@ -63,103 +63,117 @@
 
 /* 메인 컨테이너 */
 .main-container {
-  display: flex;
-  width: 72vw;
-  height: 40vw;
-  min-height: 400px;
-  max-width: 1200px;
-  margin: 40px auto 0 auto;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  overflow: visible;
+    display: flex;
+    width: 72vw;
+    height: 40vw;
+    min-height: 400px;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: visible;
 }
 
 /* 히어로 이미지 */
 .hero-image {
-  width: 50%;
-  height: 100%;
-  background-image: url('/public/fly.gif');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 15px;
+    width: 50%;
+    height: 100%;
+    background-image: url('/public/fly.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
 }
 
 .hero-image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
- 
-  opacity: 0;
-  animation: fadeIn 2s ease-out forwards;
-}
-
-@media (max-width: 991px) {
-  .main-container {
-    width: 98%;
-    height: auto;
-  }
-  .hero-image, .cards-container {
-    width: 100%;
-    height: 40vh;
-  }
-  .cards-grid {
-    height: auto;
-  }
-  .card-wrapper {
-    width: 50%;
-    height: auto;
-  }
-}
-
-@media (max-width: 576px) {
-  .main-container {
-    width: 100%;
-    height: auto;
-  }
-  .hero-image, .cards-container {
-    width: 100%;
-    height: 30vh;
-  }
-  .card-wrapper {
-    width: 100%;
-  }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
 }
 
 /* 카드 컨테이너 */
 .cards-container {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  padding: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
 }
 
 /* 카드 그리드 */
 .cards-grid {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  align-items: stretch;
-  align-content: stretch;
-  gap: 0;
-  overflow: visible;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    align-content: stretch;
+    gap: 0;
+    overflow: visible;
 }
 
 /* 카드 래퍼 */
 .card-wrapper {
-  width: 33.3333%;
-  height: 50%;
-  display: flex;
-  align-items: stretch;
-  overflow: visible;
+    width: 33.3333%;
+    height: 50%;
+    display: flex;
+    align-items: stretch;
+    overflow: visible;
+}
+
+@media (max-width: 991px) {
+    .main-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        min-height: auto;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .cards-container {
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .cards-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .card-wrapper {
+        width: 33.3333%;
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-container {
+        width: 95%;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+
+    .card-wrapper {
+        width: 50%;
+        height: 160px;
+    }
 }
 
 /* 그라디언트 카드 */

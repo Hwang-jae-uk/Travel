@@ -36,6 +36,9 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
+    // Swagger UI
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+
     // HTTP 클라이언트 (네이버 API 호출용) - 기본 RestTemplate 사용
 
     compileOnly 'org.projectlombok:lombok'

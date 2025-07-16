@@ -183,8 +183,24 @@ public class RoomService {
         return resBasketDTOList;
     }
 
+    @Transactional
     public void basketDelete(Long id) {
-        reservationBasketRepository.deleteById(id);
+        // 1. 장바구니 항목 조회
+        ReservationBasket basket = reservationBasketRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Basket not found"));
+
+        // 2. 해당 장바구니와 연결된 예약 조회
+        Reservation reservation = reservationRepository.findByReservationBasket(basket)
+                .orElse(null);
+
+        if (reservation != null) {
+            // 3. 예약이 있다면 예약에서 장바구니 참조만 제거
+            reservation.setReservationBasket(null);
+            reservationRepository.save(reservation);
+        }
+
+        // 4. 장바구니 삭제
+        reservationBasketRepository.delete(basket);
     }
 
 
@@ -201,13 +217,19 @@ public class RoomService {
         }
     }
 
+    @Transactional
     public void reservationDelete(Long id) {
         Reservation reservation = reservationRepository.findById(id).orElseThrow();
+        Room room = roomRepository.findById(reservation.getRoom().getId()).orElse(null);
 
         RoomInventory roomInventory = roomInventoryRepository.findByRoomAndDate(reservation.getRoom() , reservation.getCheckInDate()).orElseThrow();
 
         roomInventory.setReservedCount(roomInventory.getReservedCount() - 1);
         roomInventory.setAvailableCount(roomInventory.getAvailableCount() + 1);
+
+        if(room.getCapacity() == roomInventory.getAvailableCount()) {
+            roomInventoryRepository.delete(roomInventory);
+        }
 
 
         reservationRepository.deleteById(id);

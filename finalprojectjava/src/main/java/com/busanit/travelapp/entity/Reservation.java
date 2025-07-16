@@ -35,11 +35,6 @@ public class Reservation extends BaseEntity {
     @Column(name = "paymentId")
     private String paymentId;
     
-    // 관계 설정
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_email", referencedColumnName = "email")
-//    private User user;                      // 예약한 사용자
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;                    // 예약한 호텔

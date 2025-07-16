@@ -21,9 +21,4 @@ public interface CafeReviewRepository extends JpaRepository<CafeReview, Long> {
     // 카페별 리뷰 개수 조회
     Long countByCafeId(Long cafeId);
 
-    // 사용자별 카페 리뷰 중복 확인
-    boolean existsByCafeIdAndUserEmail(Long cafeId, String userEmail);
-
-    // 사용자 이메일과 리뷰 ID로 리뷰 조회 (삭제 권한 확인용)
-    CafeReview findByIdAndUserEmail(Long id, String userEmail);
 } 

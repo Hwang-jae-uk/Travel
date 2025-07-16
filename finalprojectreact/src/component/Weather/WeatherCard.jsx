@@ -1,9 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 const WeatherCard = ({ currentWeather, forecast, location, onLocationChange }) => {
     const [selectedDate, setSelectedDate] = useState('');
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const sliderRef = useRef(null);
+
+    const handleWheel = useCallback((e) => {
+        e.preventDefault();
+        if (sliderRef.current) {
+            // 스크롤 감도 증가 (기본값의 5배)
+            const scrollAmount = e.deltaY * 7;
+            
+            // 카드 너비(200px)를 기준으로 스크롤 스냅
+            const cardWidth = 215; // 카드 너비(200px) + gap(15px)
+            const currentScroll = sliderRef.current.scrollLeft;
+            
+            if (Math.abs(e.deltaY) > 0) {
+                // 스크롤 방향에 따라 다음/이전 카드로 스크롤
+                if (e.deltaY > 0) {
+                    // 아래로 스크롤: 다음 카드로
+                    sliderRef.current.scrollTo({
+                        left: Math.ceil((currentScroll + scrollAmount) / cardWidth) * cardWidth,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // 위로 스크롤: 이전 카드로
+                    sliderRef.current.scrollTo({
+                        left: Math.floor((currentScroll + scrollAmount) / cardWidth) * cardWidth,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+    }, []);
+
+    // 버튼 클릭 핸들러 추가
+    const handleButtonClick = useCallback((direction) => {
+        if (sliderRef.current) {
+            const cardWidth = 215; // 카드 너비(200px) + gap(15px)
+            const currentScroll = sliderRef.current.scrollLeft;
+
+            // 한 카드씩 이동
+            const newScroll = direction === 'next' 
+                ? currentScroll + cardWidth 
+                : currentScroll - cardWidth;
+
+            sliderRef.current.scrollTo({
+                left: newScroll,
+                behavior: 'smooth'
+            });
+
+            // 스크롤 이벤트 일시적으로 비활성화
+            if (sliderRef.current) {
+                sliderRef.current.removeEventListener('wheel', handleWheel);
+                setTimeout(() => {
+                    sliderRef.current?.addEventListener('wheel', handleWheel, { passive: false });
+                }, 800); // 스크롤 애니메이션이 끝나는 시간과 맞춤
+            }
+        }
+    }, [handleWheel]);
+
+    // 컴포넌트가 마운트될 때 이벤트 리스너 추가
+    useEffect(() => {
+        const sliderContainer = sliderRef.current;
+        
+        if (sliderContainer) {
+            sliderContainer.style.overscrollBehavior = 'contain';
+            sliderContainer.style.touchAction = 'none';
+            sliderContainer.addEventListener('wheel', handleWheel, { passive: false });
+        }
+
+        return () => {
+            if (sliderContainer) {
+                sliderContainer.removeEventListener('wheel', handleWheel);
+            }
+        };
+    }, [handleWheel]);
 
     const getWeatherDescription = (pty) => {
         switch (pty) {
@@ -97,23 +169,9 @@ const WeatherCard = ({ currentWeather, forecast, location, onLocationChange }) =
     const timeGroupedData = selectedDateData.length > 0 ? groupForecastByDateTime(selectedDateData) : {};
     const sortedTimes = Object.keys(timeGroupedData).sort();
 
-    // 슬라이드 관련 계산
-    const cardsPerSlide = 4;
-    const maxSlide = Math.max(0, sortedTimes.length - cardsPerSlide);
-
-    // 날짜가 변경될 때 슬라이드 초기화
+    // 날짜가 변경될 때 초기화
     const handleDateChange = (newDate) => {
         setSelectedDate(newDate);
-        setCurrentSlide(0);
-    };
-
-    // 슬라이드 이동 함수
-    const goToSlide = (direction) => {
-        if (direction === 'prev' && currentSlide > 0) {
-            setCurrentSlide(currentSlide - 1);
-        } else if (direction === 'next' && currentSlide < maxSlide) {
-            setCurrentSlide(currentSlide + 1);
-        }
     };
 
     return (
@@ -188,46 +246,38 @@ const WeatherCard = ({ currentWeather, forecast, location, onLocationChange }) =
                             ))}
                         </select>
 
-                        {/* 시간별 예보 슬라이더 */}
-                        <div className="forecast-slider-wrapper">
-                            {/* 왼쪽 버튼 */}
-                            <button 
-                                className={`slider-btn slider-btn-prev ${currentSlide === 0 ? 'disabled' : ''}`}
-                                onClick={() => goToSlide('prev')}
-                                disabled={currentSlide === 0}
+                        {/* 시간별 예보 컨테이너 */}
+                        <div className="forecast-section">
+                            <div 
+                                ref={sliderRef}
+                                className="forecast-slider-container"
                             >
-                                ‹
-                            </button>
+                                <div className="forecast-slider">
+                                    {sortedTimes.map((time) => {
+                                        const timeData = timeGroupedData[time];
+                                        const temp = timeData.find(item => item.category === 'TMP')?.fcstValue;
+                                        const pty = timeData.find(item => item.category === 'PTY')?.fcstValue;
+                                        const reh = timeData.find(item => item.category === 'REH')?.fcstValue;
+                                        const wsd = timeData.find(item => item.category === 'WSD')?.fcstValue;
 
-                            {/* 슬라이더 컨테이너 */}
-                            <div className="forecast-slider-container">
-                                <div 
-                                    className="forecast-slider"
-                                    style={{
-                                        transform: `translateX(-${currentSlide * (100 / cardsPerSlide)}%)`
-                                    }}
-                                >
-                                    {sortedTimes.map((time, index) => {
-                                        const items = timeGroupedData[time];
-                                        const ptyValue = items.find(item => item.category === 'PTY')?.fcstValue;
-                                        const tempValue = items.find(item => item.category === 'TMP')?.fcstValue;
                                         return (
-                                            <div key={`${currentSelectedDate}-${time}`} className={`forecast-time-card ${getWeatherClass(ptyValue, tempValue)}`}>
-                                                <div className="forecast-time">
-                                                    {formatTime(time)}
-                                                </div>
+                                            <div 
+                                                key={time}
+                                                className={`forecast-time-card ${getWeatherClass(pty, temp)}`}
+                                            >
+                                                <div className="forecast-time">{formatTime(time)}</div>
                                                 <div className="forecast-weather-icon">
-                                                    {getWeatherDescription(ptyValue)}
+                                                    {getWeatherDescription(pty)}
                                                 </div>
                                                 <div className="forecast-temperature">
-                                                    {items.find(item => item.category === 'TMP')?.fcstValue}°C
+                                                    {temp}°C
                                                 </div>
                                                 <div className="forecast-details-mini">
                                                     <div className="mini-detail">
-                                                        <span>💧 {items.find(item => item.category === 'REH')?.fcstValue}%</span>
+                                                        <span>💧 {reh}%</span>
                                                     </div>
                                                     <div className="mini-detail">
-                                                        <span>💨 {items.find(item => item.category === 'WSD')?.fcstValue}m/s</span>
+                                                        <span>💨 {wsd}m/s</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -235,29 +285,21 @@ const WeatherCard = ({ currentWeather, forecast, location, onLocationChange }) =
                                     })}
                                 </div>
                             </div>
-
-                            {/* 오른쪽 버튼 */}
-                            <button 
-                                className={`slider-btn slider-btn-next ${currentSlide >= maxSlide ? 'disabled' : ''}`}
-                                onClick={() => goToSlide('next')}
-                                disabled={currentSlide >= maxSlide}
-                            >
-                                ›
-                            </button>
-                        </div>
-
-                        {/* 슬라이드 인디케이터 */}
-                        {maxSlide > 0 && (
-                            <div className="slider-indicators">
-                                {Array.from({ length: maxSlide + 1 }, (_, index) => (
-                                    <div 
-                                        key={index}
-                                        className={`indicator ${currentSlide === index ? 'active' : ''}`}
-                                        onClick={() => setCurrentSlide(index)}
-                                    />
-                                ))}
+                            <div className="forecast-nav-buttons">
+                                <button 
+                                    className="nav-button prev"
+                                    onClick={() => handleButtonClick('prev')}
+                                >
+                                    ◀
+                                </button>
+                                <button 
+                                    className="nav-button next"
+                                    onClick={() => handleButtonClick('next')}
+                                >
+                                    ▶
+                                </button>
                             </div>
-                        )}
+                        </div>
                     </div>
                 )}
             </div>

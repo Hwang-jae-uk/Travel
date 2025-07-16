@@ -46,7 +46,8 @@ const RestaurantList = () => {
             city: '',
             cuisine: '',
             hasParking: false,
-            hasDelivery: false
+            hasDelivery: false,
+            hasReservation: false
         });
     };
 
@@ -57,8 +58,9 @@ const RestaurantList = () => {
         const cuisineMatch = !searchFilters.cuisine || restaurant.cuisine === searchFilters.cuisine;
         const parkingMatch = !searchFilters.hasParking || restaurant.hasParking;
         const deliveryMatch = !searchFilters.hasDelivery || restaurant.hasDelivery;
+        const reservationMatch = !searchFilters.hasReservation || restaurant.hasReservation;
 
-        return nameMatch && provinceMatch && cityMatch && cuisineMatch && parkingMatch && deliveryMatch;
+        return nameMatch && provinceMatch && cityMatch && cuisineMatch && parkingMatch && deliveryMatch && reservationMatch;
     });
 
     if (loading) return <div>로딩 중...</div>;
@@ -158,6 +160,14 @@ const RestaurantList = () => {
                             />
                             <MdDeliveryDining size={18} /> 배달 가능
                         </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={searchFilters.hasReservation}
+                                onChange={(e) => setSearchFilters({...searchFilters, hasReservation: e.target.checked})}
+                            />
+                            <MdDeliveryDining size={18} /> 예약 가능
+                        </label>
                     </div>
                     <div className="search-actions">
                         <button 
@@ -170,7 +180,8 @@ const RestaurantList = () => {
                                     city: '',
                                     cuisine: '',
                                     hasParking: false,
-                                    hasDelivery: false
+                                    hasDelivery: false,
+                                    hasReservation: false
                                 });
                             }}
                         >

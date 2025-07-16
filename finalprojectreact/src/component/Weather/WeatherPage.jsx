@@ -135,15 +135,35 @@ const WeatherPage = () => {
 
                 const forecastItems = forecastResponse.data.response.body.items.item;
 
-                // 현재 시간 이후의 예보만 필터링하고, 필요한 카테고리만 선택
+                // 날짜별 시간대 데이터 필터링
                 const filteredForecast = forecastItems
                     .filter(item => {
-                        if (item.fcstDate > currentDate) return true;
-                        return item.fcstDate === currentDate && item.fcstTime > currentTime;
-                    })
-                    .filter(item => {
-                        return ["TMP", "PTY", "REH", "WSD"].includes(item.category);
+                        // 카테고리 필터링
+                        if (!["TMP", "PTY", "REH", "WSD"].includes(item.category)) {
+                            return false;
+                        }
+
+                        const itemDate = parseInt(item.fcstDate);
+                        const currentDateInt = parseInt(currentDate);
+                        const daysDiff = Math.floor((itemDate - currentDateInt) / 10000); // 날짜 차이 계산
+
+                        // 오늘/내일/모레 데이터 (1시간 간격)
+                        if (daysDiff <= 2) {
+                            return true; // 00시부터 23시까지 모든 데이터 포함
+                        }
+                        // 4일차 데이터 (3시간 간격)
+                        else if (daysDiff === 3) {
+                            return parseInt(item.fcstTime) % 300 === 0;
+                        }
+                        // 5일차 데이터 (00시 데이터만)
+                        else if (daysDiff === 4) {
+                            return item.fcstTime === "0000";
+                        }
+                        
+                        return false;
                     });
+
+                console.log('Filtered forecast data:', filteredForecast); // 데이터 확인용
                 setForecast(filteredForecast);
 
             } catch (error) {

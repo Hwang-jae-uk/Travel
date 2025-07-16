@@ -19,10 +19,9 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
     cuisine: '',
     priceRange: '',
     facilities: {
-      parking: false,
-      reservation: false,
-      delivery: false,
-      takeout: false
+      hasParking: false,
+      hasReservation: false,
+      hasDelivery: false
     }
   });
 
@@ -56,10 +55,9 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
           closeTime: restaurant.closeTime || '',
           cuisine: restaurant.cuisine || '',
           facilities: {
-            parking: restaurant.facilities?.parking || false,
-            reservation: restaurant.facilities?.reservation || false,
-            delivery: restaurant.facilities?.delivery || false,
-            takeout: restaurant.facilities?.takeout || false
+            hasParking: restaurant.hasParking || false,
+            hasReservation: restaurant.hasReservation || false,
+            hasDelivery: restaurant.hasDelivery || false
           }
         });
 
@@ -120,8 +118,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
       restaurantInfo.description === '' || 
       restaurantInfo.openTime === '' || 
       restaurantInfo.closeTime === '' || 
-      restaurantInfo.cuisine === '' || 
-      restaurantInfo.priceRange === '' || 
+      restaurantInfo.cuisine === '' ||  
       (existingImages.length === 0 && images.length === 0)
     ) {
       alert('모든 항목을 필수로 입력해주세요.');
@@ -137,8 +134,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
     formData.append('description', restaurantInfo.description);
     formData.append('openTime', restaurantInfo.openTime);
     formData.append('closeTime', restaurantInfo.closeTime);
-    formData.append('cuisine', restaurantInfo.cuisine);
-    formData.append('priceRange', restaurantInfo.priceRange);
+    formData.append('cuisine', restaurantInfo.cuisine);  
     
     // 편의시설 정보 추가
     Object.entries(restaurantInfo.facilities).forEach(([key, value]) => {
@@ -148,7 +144,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
     // 남아있는 기존 이미지 정보 추가
     existingImages.forEach((image, index) => {
       formData.append(`existingImages[${index}].id`, image.id);
-      formData.append(`existingImages[${index}].imageUrl`, image.imageUrl);
+      formData.append(`existingImages[${index}].imageUrl`, image.path);
     });
 
     // 새로운 이미지 추가
@@ -156,6 +152,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
       formData.append('imagesFiles', image);
     });
 
+    console.log('Form Data:', restaurantInfo.facilities);
     try {
       // 수정 API 호출 (PUT 방식)
       const response = await axios.put(`/api/restaurants/${id}`, formData, {
@@ -163,7 +160,7 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log(response.data)
+      console.log(response.data) 
       
       alert('레스토랑이 성공적으로 수정되었습니다.');
       navigate('/RestaurantPageAdmin');
@@ -334,8 +331,8 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
         <div className="checkbox-group">
           <input
             type="checkbox"
-            name="facilities.parking"
-            checked={restaurantInfo.facilities.parking}
+            name="facilities.hasParking"
+            checked={restaurantInfo.facilities.hasParking}
             onChange={handleChange}
             id="parking"
           />
@@ -345,8 +342,8 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
         <div className="checkbox-group">
           <input
             type="checkbox"
-            name="facilities.reservation"
-            checked={restaurantInfo.facilities.reservation}
+            name="facilities.hasReservation"
+            checked={restaurantInfo.facilities.hasReservation}
             onChange={handleChange}
             id="reservation"
           />
@@ -356,8 +353,8 @@ const RestaurantEditPage = ({ isAdmin = false }) => {
         <div className="checkbox-group">
           <input
             type="checkbox"
-            name="facilities.delivery"
-            checked={restaurantInfo.facilities.delivery}
+            name="facilities.hasDelivery"
+            checked={restaurantInfo.facilities.hasDelivery}
             onChange={handleChange}
             id="delivery"
           />

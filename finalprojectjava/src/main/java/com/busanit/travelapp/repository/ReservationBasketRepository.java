@@ -13,9 +13,5 @@ public interface ReservationBasketRepository extends JpaRepository<ReservationBa
     List<ReservationBasket> findByUserEmail(String userEmail);
 
     List<ReservationBasket> findAllByCheckInDateBefore(LocalDate date);
-
-    List<ReservationBasket> findAllByCheckInDateLessThanEqual(LocalDate date); // 오늘이전
-
-
     
 }

@@ -1,10 +1,10 @@
 .train-home {
-  background-image: url('../../public/train.gif');
+  background-color: rgba(219, 235, 243, 0.3);
   background-size: cover;
   background-position: center;
   min-height: 100vh;
   width: 100%;
-  position: relative; /* 오버레이용 */   
+  position: relative; /* 오버레이용 */
 }
 
 /* 배경 위 가독성을 높이기 위한 흰색 반투명 오버레이 */
@@ -23,7 +23,7 @@
 }
 
 /* 실제 콘텐츠가 오버레이 위에 오도록 */
-.train-home > * {
+.train-home > {
   position: relative;
   z-index: 1;
 }

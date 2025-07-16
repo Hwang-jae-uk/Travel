@@ -44,24 +44,24 @@ public class RestaurantService {
     // 레스토랑 상세 조회
     public RestaurantDTO getRestaurant(Long id) {
         log.info("Finding restaurant with id: {}", id);
-        
+
         // 먼저 레스토랑과 이미지를 조회
         Restaurant restaurant = restaurantRepository.findByIdWithImages(id);
-        
+
         if (restaurant == null) {
             log.error("Restaurant not found with id: {}", id);
             // 모든 레스토랑 ID 로그 출력
             List<Restaurant> allRestaurants = restaurantRepository.findAll();
-            log.info("Available restaurant IDs: {}", 
-                allRestaurants.stream().map(Restaurant::getId).collect(Collectors.toList()));
+            log.info("Available restaurant IDs: {}",
+                    allRestaurants.stream().map(Restaurant::getId).collect(Collectors.toList()));
             throw new RuntimeException("Restaurant not found with id: " + id);
         }
 
-        
-        log.info("Found restaurant: {} with {} images and {} dishes", 
-                restaurant.getName(), 
+
+        log.info("Found restaurant: {} with {} images and {} dishes",
+                restaurant.getName(),
                 restaurant.getImages() != null ? restaurant.getImages().size() : 0);
-        
+
         return convertToDTO(restaurant);
     }
 
@@ -76,8 +76,10 @@ public class RestaurantService {
                 .cuisine(restaurantDTO.getCuisine())
                 .openTime(restaurantDTO.getOpenTime())
                 .closeTime(restaurantDTO.getCloseTime())
-                .hasDelivery(restaurantDTO.getHasDelivery())
+                .hasDelivery(restaurantDTO.isHasDelivery())
                 .description(restaurantDTO.getDescription())
+                .hasParking(restaurantDTO.isHasParking())
+                .hasReservation(restaurantDTO.isHasReservation())
                 .build();
 
         restaurantRepository.save(restaurant);
@@ -129,9 +131,9 @@ public class RestaurantService {
             restaurant.setCuisine(restaurantDTO.getCuisine());
             restaurant.setOpenTime(restaurantDTO.getOpenTime());
             restaurant.setCloseTime(restaurantDTO.getCloseTime());
-            restaurant.setHasParking(restaurantDTO.getHasParking());
-            restaurant.setHasReservation(restaurantDTO.getHasReservation());
-            restaurant.setHasDelivery(restaurantDTO.getHasDelivery());
+            restaurant.setHasParking(restaurantDTO.isHasParking());
+            restaurant.setHasReservation(restaurantDTO.isHasReservation());
+            restaurant.setHasDelivery(restaurantDTO.isHasDelivery());
             restaurant.setDescription(restaurantDTO.getDescription());
 
 
@@ -262,9 +264,9 @@ public class RestaurantService {
                 .cuisine(restaurant.getCuisine())
                 .openTime(restaurant.getOpenTime())
                 .closeTime(restaurant.getCloseTime())
-                .hasParking(restaurant.getHasParking())
-                .hasReservation(restaurant.getHasReservation())
-                .hasDelivery(restaurant.getHasDelivery())
+                .hasParking(restaurant.isHasParking())
+                .hasReservation(restaurant.isHasReservation())
+                .hasDelivery(restaurant.isHasDelivery())
                 .description(restaurant.getDescription())
                 .images(imageUrls)
 

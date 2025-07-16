@@ -72,11 +72,26 @@ const MyPage = () => {
         fetchTrainReservations();
     }, [navigate]);
 
-    const handleReservationCancel = async (reservationId) => {
+    const handleReservationCancel = async (reservation) => {
+        console.log("reservation.id", reservation.id);
         if (window.confirm('정말로 호텔 예약을 취소하시겠습니까?')) {
             try {
-                await axios.delete(`/api/reservations/${reservationId}`);
-                setReservations(reservations.filter(res => res.id !== reservationId));
+                const paymentClient = PaymentClient({
+                    secret: "92oOoI6pdpDDAhxjhOQOy0evayERJhSaEo7egz0tQU1pvdk8Q9RMxcqcqy09X983jZYRvoJLKrYqHQdB",
+                }); 
+                console.log("paymentId", reservation.paymentId); 
+                    try { 
+                        const response = await paymentClient.cancelPayment({
+                        paymentId: reservation.paymentId,
+                        reason: "테스트",
+                        });
+                        console.log(response);
+                        alert('결제 취소가 완료되었습니다.');                
+                    } catch (e) {
+                        alert('결제 취소가 실패되었습니다. 다시 시도해주세요.');
+                    }    
+                await axios.delete(`/api/reservations/${reservation.id}`);
+                setReservations(reservations.filter(res => res.id !== reservation.id));
                 alert('호텔 예약이 취소되었습니다.');
             } catch (error) {
                 console.error('호텔 예약 취소 실패:', error);
@@ -278,7 +293,7 @@ const MyPage = () => {
                                             {reservation.status === 'confirmed' && (
                                                 <Button 
                                                     text="예약 취소" 
-                                                    onClick={() => handleReservationCancel(reservation.id)}
+                                                    onClick={() => handleReservationCancel(reservation)}
                                                     className="cancel-button"
                                                 />
                                             )}

@@ -12,7 +12,7 @@ import { BsCart4 } from "react-icons/bs";
 
 const TrainBasket = () => {
     const navigate = useNavigate();
-    const { basketItems, setBasketItems, booking, selectedTrain } = useContext(BookingContext);
+    const { basketItems, setBasketItems, booking, selectedTrain, recentlyDeletedItems, setRecentlyDeletedItems } = useContext(BookingContext);
  
     // 선택 체크박스 상태 (항목별)
     const [checkedList, setCheckedList] = useState(basketItems.map(() => true));
@@ -230,6 +230,20 @@ const TrainBasket = () => {
             alert('결제 취소가 실패되었습니다. 다시 시도해주세요.');
         }
     };
+
+    useEffect(() => {
+        if (recentlyDeletedItems && recentlyDeletedItems.length > 0) {
+            recentlyDeletedItems.forEach(item => {
+                // 편도/왕복 구분
+                const tripType = item.roundTrip ? (item.direction === 'depart' ? '왕복(가는날)' : '왕복(오는날)') : '편도';
+                // 출발/도착역
+                const from = item.initialOneTicket?.departure || item.departure || '';
+                const to = item.initialOneTicket?.arrival || item.arrival || '';
+                alert(`${tripType} ${from} > ${to} 구간이 10분이 지나 구매하지 않은 상품이 자동으로 삭제되었습니다.`);
+            });
+            setRecentlyDeletedItems([]); // 알림 후 비우기
+        }
+    }, [recentlyDeletedItems, setRecentlyDeletedItems]);
 
     return (
         <div className="train-basket">

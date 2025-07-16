@@ -21,10 +21,10 @@ public class RestaurantDTO {
     private String openTime;
     private String closeTime;
     private String description;
-    private Boolean hasParking;
-    private Boolean hasReservation;
-    private Boolean hasDelivery;
-    
+    private boolean hasParking;
+    private boolean hasReservation;
+    private boolean hasDelivery;
+
 
     private List<RestaurantImageDTO> images;
     private List<RestaurantImageDTO> existingImages;

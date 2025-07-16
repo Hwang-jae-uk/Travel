@@ -45,10 +45,8 @@ const CafeEditPage = ({ isAdmin = false }) => {
           openTime: cafe.openTime || '',
           closeTime: cafe.closeTime || '',
           facilities: {
-            wifi: cafe.facilities?.wifi || false,
-            parking: cafe.facilities?.parking || false,
-            takeout: cafe.facilities?.takeout || false,
-            delivery: cafe.facilities?.delivery || false
+            wifi: cafe.wifi || false,
+            parking: cafe.parking || false,
           }
         });
 

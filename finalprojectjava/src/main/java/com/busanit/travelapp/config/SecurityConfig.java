@@ -40,7 +40,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.POST , "/api/hotel/" , "/api/restaurants","/api/cafe" ).hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE , "/api/hotel/**" , "/api/restaurants/**","/api/cafe/**" ).hasRole("ADMIN")
-                .requestMatchers("/", "/login", "/oauth2/**", "/h2-console/**","/api/**" , "/data/**","apis/**").permitAll()  // H2 콘솔 추가
+                .requestMatchers("/", "/login", "/oauth2/**", "/h2-console/**","/api/**" , "/data/**","apis/**",
+                                    "/api-docs/json" , "/practice-ui.html","/v3/api-docs/**","/swagger-ui/**" , "/swagger-ui.html").permitAll()  // H2 콘솔 추가
                 .anyRequest().authenticated()
             )
             .oauth2Login(oauth2 -> oauth2

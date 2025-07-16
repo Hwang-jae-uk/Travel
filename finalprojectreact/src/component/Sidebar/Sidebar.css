@@ -12,7 +12,7 @@
 }
 
 .sidebar.collapsed {
-  left: -100px;
+  left: -150px;
   padding-right: 40px;
 }
 
@@ -109,7 +109,7 @@
   }
 
   .sidebar {
-    left: -100px;
+    left: -150px;
     padding-right: 40px;
   }
 
@@ -126,4 +126,4 @@
     opacity: 1;
     visibility: visible;
   }
-} 
+}
